@@ -1,0 +1,1 @@
+PlayGuideWindow("Now lets click the reports button, that's the button to the right of the threats button.",250,20,FALSE);SetAllowedButton(ReportButton);CloseIntelReport();

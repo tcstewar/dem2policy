@@ -1,0 +1,20 @@
+[dilemma]
+name = GANGSTA RAP
+guiname = gangsta rap
+description = A new album has been released by a 'gangsta-rap' band which has highly controversial lyrics, especially concerning gun crime. there are calls to ban the album and prevent live appearances by this controversial band.
+
+[influences]
+0 = _default_,0+(0.2*x)
+1 = CrimeRate,0+(0.6*x)
+2 = PovertyRate,0+(0.4*x)
+
+[option0]
+Name = Allow music
+Description = We should be very careful about banning this music. Banning it will only add to its appeal amongst young people, and lead to calls of censorship. Its not the states job to decide what kind of music young people can listen to, and we risk alienating them with such a move
+OnImplement = "CreateGrudge(GANGSTA RAP,Liberal,0.1,1.0f);CreateGrudge(GANGSTA RAP,CrimeRate,0.12,1.0f);"
+
+[option1]
+Name = Ban music
+Description = Freedom of speech is all well and good, but we can't let our children listen to songs about gun crime and hatred. No wonder we have street crime, this music should be banned without hesitation
+OnImplement = "CreateGrudge(GANGSTA RAP,Liberal,-0.05,1.0f);CreateGrudge(GANGSTA RAP,CrimeRate,-0.03,1.0f);CreateGrudge(GANGSTA RAP,Religious,0.1,1.0f);"
+

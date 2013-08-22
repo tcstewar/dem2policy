@@ -1,0 +1,8 @@
+<WRAP = 760><FONTNAME = arial16.dds><FONTSIZE = 16><COLOR = 255,255,255,255><BR>
+Possibly the most famous piece of pollution control legislation was the original 'Clean Air Act' introduced in Britain in 1956. The act was a response to the 'Great Smog of 1952', which caused the deaths of thousands through respiratory disease. The smog was caused mainly by burning low quality coal, and got so bad that cinema screenings were canceled due to the audiences inability to see the screen.
+The act introduced 'smokeless zones' where only smokeless fuel could be burned. The act did meet some resistance, because smokeless fuel was in short supply and much more expensive that the kind currently in use. Householders were given grants towards the costs of converting. A later version of the act in 1968 introduced the use of tall chimneys for factories to reduce air pollution.
+<BR>
+A similar act was passed in the US in 1963. Numerous other acts have been passed since then, including the 1990 act which introduced the idea of
+emissions trading. Between 1970 and 2006 Carbon Monoxide emissions in the US fell from 197 to 89 million tons, and lead emissions fell by 98%
+<BR>
+Despite these measures, air pollution still causes problems. The World Health Organization estimates that air pollution contributes to 4.6 million deaths worldwide per year, which is more than the number killed by car accidents.

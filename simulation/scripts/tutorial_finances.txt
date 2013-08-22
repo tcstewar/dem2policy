@@ -1,0 +1,1 @@
+TutorialWindow("This window shows the finances for your country, and where all the money comes from and goes. you can click a section of the pie chart to go directly to that item to examine it in detail. Notice that if you have a government debt, you will be paying interest on the debt each turn.",50,430);

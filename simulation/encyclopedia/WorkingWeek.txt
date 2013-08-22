@@ -1,0 +1,30 @@
+<WRAP = 760><FONTNAME = arial16.dds><FONTSIZE = 16><COLOR = 255,255,255,255> 
+<BR><FONTNAME = arialbold16.dds><FONTSIZE = 16>
+Comparison of average yearly number of hours worked by country
+<BR><FONTNAME = arial16.dds><FONTSIZE = 16>
+#1   	Australia:   			1,814    	
+#2   	Japan: 			1,801   	
+#3   	United States: 		1,792   	
+#4   	Canada: 			1,718   	
+#5   	United Kingdom: 		1,673   	
+#6   	Italy: 			1,591   	
+#7   	Sweden: 			1,564   	
+#8   	France: 			1,453   	
+#9   	Norway: 			1,337  
+<BR>
+Yearly totals can be unhelpful though, because of variations in vacation time. so..
+<BR><FONTNAME = arialbold16.dds><FONTSIZE = 16>
+Comparison of percentage of workers working over 40 hours per week
+<BR><FONTNAME = arial16.dds><FONTSIZE = 16>
+#1    	Japan:   			75.9%   	
+#2   	United States: 		67.6%  	
+#3   	Switzerland: 			66.9%  	
+#4   	New Zealand: 		65.4%  	
+#5   	Italy: 			63.8%  	
+#6   	Sweden: 			61.5%  	
+#7   	Austria: 			57.6%  	
+#8   	Canada: 			54.7%  	
+#9   	United Kingdom: 		49.8%  	
+<BR>
+Some countries legislate to prevent people working too many hours. the EU has a 'Working Time Directive' passed in 1993 limiting the working week to 48 hours and insisting on a minimum rest period of 11 hour in any 24 hour period. France has stricter legislation, but the UK has the ability for it's workers to 'opt-out' of the clause.
+

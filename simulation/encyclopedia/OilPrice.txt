@@ -1,0 +1,20 @@
+<WRAP = 760><FONTNAME = arial16.dds><FONTSIZE = 16><COLOR = 255,255,255,255> Oil prices are often quoted in 'barrels' which equate to 42 gallons. Oil prices are heavily influenced by OPEC (The Organization of the Petroleum Exporting Countries), which consists of Iraq, Indonesia, Iran, Kuwait, Libya, Angola, Algeria, Nigeria, Qatar, Saudi Arabia, the United Arab Emirates, and Venezuela.<BR>
+At the time of writing crude oil prices had peaked in 2006 at $77 a barrel, compared with $15 in 1994.<BR>
+Worldwide oil prices are quoted in US Dollars, so drops in the value f the dollar affect the income earned by the oil exporting companies. Partly due to this, after the introduction of the Euro, Iraq decided to change  its oil currency to the Euro, followed by Iran and Venezuela.<BR>
+The largest oil price disruption was the 1973 'oil price crisis' when Arab states refused to export oil to those western states who were supporting Israel. The reduced supply drove up oil prices by 400% for five months.<BR>
+In order to mitigate the effects of such disruption, the US department of energy holds a strategic petroleum reserve, believed to represent 57 days supply. In 2007, US president George Bush announced plans to double the size of the reserve.<BR>
+Oil Exports (in millions of barrels per day)<BR>
+Norway		2.8
+Saudi Arabia		9.0
+Russia		7.0
+Iran			2.72
+United Arab Emirates	2.4
+Kuwait		2.32
+Nigeria		2.15
+Venezuela		2.1
+Algeria		1.84
+Mexico		1.75
+Libya		1.5
+
+
+

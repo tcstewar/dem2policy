@@ -1,0 +1,12 @@
+[config]
+Name = SocialistAssasination
+GUIName = Assassination!
+UsedBy = TheSocialistArmy
+MinStrength = 40
+Cost = 40
+MinSize = 8
+SuccessChance = 0.25
+SuccessText = 
+OnSuccess = PlaySound(ak47.ogg);GameOver("Capitalist Swine Assassinated","Today the evil capitalist lap-dog in charge of this country (that was you) was heroically assassinated by a crack team of comrades from 'the Socialist Army'. Our brave soldiers attacked the very heart of the capitalist machine by opening fire in the middle of a speech to the banking community. A number of evil fascists were killed as well as the so-called 'president' of our country. Sadly, all the comrades involved in this heroic battle have been killed by government forces. This is a victory for the common man, and game over for you.");
+FailureText = ""
+OnFailure = CreateNamedGrudge(Assassination attempt,Patriot,-0.25,0.8);CreateNamedGrudge(Assassination attempt,_All_,-0.12,0.9);TriggerEvent(FailedSocialistAssassination);

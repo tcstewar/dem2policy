@@ -1,0 +1,1 @@
+PlayGuideWindow("Now lets take a look at how you launch new policies. Click the button with the light bulb icon on it, to the right of the finance button.",312,20,FALSE);CloseFinanceWindow();SetAllowedButton(PolicyPickerButton);

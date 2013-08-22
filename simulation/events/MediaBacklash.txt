@@ -1,0 +1,10 @@
+[config]
+Name = MediaBacklash
+GUIName = Media Backlash!
+Texture = "event_newspapers.jpg"
+Description = One of our countries most popular newspapers has launched a major campaign criticizing your policies so far. This is bound to have a negative effect on your approval rating with all of this newspapers readers.
+OnView = 
+OnImplement = CreateGrudge(MediaBacklash,_All_,-0.160,0.820);CreateGrudge(MediaBacklash,MediaBacklash,-0.800,0.800);
+[influences]
+0 = "_random_,0.100,0.300"
+1 = "_winning_,0+(0.8*x)"

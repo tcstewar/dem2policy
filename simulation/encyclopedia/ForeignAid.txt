@@ -1,0 +1,16 @@
+<WRAP = 760><FONTNAME = arial16.dds><FONTSIZE = 16><COLOR = 255,255,255,255><BR>
+A number of economists, including William Easterly and James Shikwati, have argued that foreign aid to developing countries can have harmful effects, by distorting the market in those economies, and being a potential cause of corruption in the way the aid is distributed.
+<BR>
+Foreign Aid comes in many varieties, including short-term 'humanitarian aid', usually after a natural disaster, and long term 'development aid'. There has been criticism in recent years regarding the 'conditions' attached to some pieces of government aid, especially aid from the USA to Africa. organizations such as the world bank often link the provision of aid to 'free market reforms' in the target country.
+<BR>
+Amount of money given in foreign aid, per $1,000 of GDP:
+<BR>
+    	Denmark:   		$8.76	
+   	France: 		$5.04  	
+   	United Kingdom:	 $5.00 	
+   	Sweden: 		$4.91	
+   	Canada: 		$2.65  	
+   	Germany: 		$2.06 	
+  	Japan: 		$1.93 
+   	Italy: 		$0.60	
+   	United States: 	$0.59 

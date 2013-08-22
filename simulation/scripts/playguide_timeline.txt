@@ -1,0 +1,1 @@
+PlayGuideWindow("To the right of the power icon is the timeline. This bar shows progress towards the next election. Once the bar is full it's election time and you see whether or not you have made it to another term. Different levels in the game have different term lengths, and you can also adjust them if you want to. each turn in the game represents 3 months.",312,60,TRUE);

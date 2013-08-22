@@ -1,0 +1,1 @@
+TutorialWindow("This window is a mix of all the different voter groups and what their opinion of government has been over time (with the present day on the far right). You can de-clutter the graph by clicking individual buttons to turn on or turn off each of the groups.",50,350);

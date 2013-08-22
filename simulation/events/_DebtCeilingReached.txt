@@ -1,0 +1,9 @@
+[config]
+Name = DebtCeilingReached
+GUIName = Debt Ceiling Reached!
+Texture = 
+Description = 
+OnView = 
+OnImplement = PlaySound(crowd_angry.ogg);GameOver("DebtCeiling Reached","The debt has got so high that your ministers and party bosses have formed a political coup and hounded you from office for incompetence!");
+[influences]
+

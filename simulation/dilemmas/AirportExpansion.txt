@@ -1,0 +1,19 @@
+
+[dilemma]
+name = "AirportExpansion"
+guiname = "Airport Expansion"
+description = "Planning permission has been requested for the expansion of some of our country's largest airports. There is simply not enough capacity for the number of flights that want to land here."
+
+[influences]
+0 = "_random_,0.2,0.4"
+1 = "GDP,0+(0.6*x)"
+
+[option0]
+Description = "Our tourism industry is very dependent on air travel, and if we are to expand tourism, providing more jobs and growth in GDP, we must make more air capacity available. We need to act now to ensure we have the increased capacity in time."
+Name = "Allow Expansion Plans"
+OnImplement = "CreateGrudge(AirportExpansion,Environmentalist,-0.08,1.0);CreateGrudge(AirportExpansion,GDP,0.02,1.0);CreateInertialGrudge(AirportExpansion,AirTravel,0.11,1.0,8);"
+
+[option1]
+Description = "Air travel is a pollution nightmare, both air and noise pollution cause problems, we should not be encouraging air travel. Also, the plans would mean the demolition of countless homes and vast inconvenience to people living near the airports. Reject the plans! "
+Name = "Reject Plans"
+OnImplement = "CreateGrudge(AirportExpansion,Environmentalist,0.07,1.0);CreateGrudge(AirportExpansion,GDP,-0.05,1.0);CreateGrudge(AirportExpansion,Capitalist,-0.07,1.0)"

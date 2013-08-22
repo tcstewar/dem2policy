@@ -1,0 +1,10 @@
+[config]
+Name = SportingTriumph
+GUIName = Athelete Wins Gold Medal!
+Texture = "event_sportmedal.jpg"
+Description = Nothing inspires our citizens like one of their countrymen achieving dramatic success in sport! The feel good factor from this fantastic sporting achievement is likely to take peoples minds off their problems and maybe even stop them criticizing their leaders for a short while!
+OnView = PlaySound(crowd_cheer.ogg)
+OnImplement = CreateGrudge(SportingTriumph,Patriot,0.480,0.860);CreateGrudge(SportingTriumph,SportingTriumph,-0.650,0.700);
+[influences]
+0 = "_random_,0.000,0.160"
+1 = "_winning_,0.65-(0.5*x)"

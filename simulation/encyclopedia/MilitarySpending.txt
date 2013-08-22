@@ -1,0 +1,42 @@
+<WRAP = 760><FONTNAME = arial16.dds><FONTSIZE = 16><COLOR = 255,255,255,255>
+Total Armed Forces Personnel
+   	China:   			2,810,000    	
+  	Russia: 			1,520,000   	
+  	United States: 		1,366,000   	 	 	  	
+  	Iran: 			513,000   	 	
+   	France: 			294,000   	 	 	
+  	Japan: 			237,000   	
+   	Germany: 			221,000   	  	
+   	United Kingdom: 		212,000   	
+  	Saudi Arabia: 		202,000   		
+   	Israel: 			172,000   		 	
+   	Canada: 			59,000   		
+   	Cuba: 			58,000   	 		 		
+   	Belgium: 			39,000   		 		
+   	Barbados: 			1,000   
+
+Military Spending as percentage of GDP  	
+   	Saudi Arabia: 		10 %    		
+  	Israel: 			7.3 %    		
+  	Syria: 			5.9 %    		
+  	United States: 		4.06 %    	 	
+   	China: 			3.8 %    		 	
+  	France: 			2.6 %    		
+   	Iran: 			2.5 %    		
+  	United Kingdom: 		2.4 %    	
+  	Australia: 			2.4 %    		  		
+   	Switzerland: 			1 %    	   	
+   	Mexico: 			0.5 %    	
+
+Military spending (total in millions of dollars)
+	United States:   		$276,700  	
+   	China: 			$55,910	
+   	France: 			$46,500
+   	Japan: 			$39,520 	
+   	United Kingdom: 		$31,700   	
+   	Saudi Arabia: 		$18,300	
+   	Iran: 			$9,700	
+   	Israel: 			$8,970
+ 
+
+

@@ -1,0 +1,20 @@
+[dilemma]
+name = ForeignTaxBreak
+guiname = Investor tax break
+description = There are a number of large foreign companies considering setting up factories in our country, but they are looking for tax breaks in order to do so. These are true multinational companies that could locate anywhere in the world, and persuading them to locate here will bring lots of high tech jobs.
+
+[influences]
+0 = _default_,0.1+(0*x)
+1 = GDP,0.2-(0.1*x)
+2 = AverageIncome,0.25-(0.25*x)
+
+[option0]
+Name = Give tax break
+Description = These companies could place their factories anywhere in the world, so we shouldn't attempt to call their bluff. Its important to get highly skilled jobs here rather than overseas with our competitors. If it means a cost to us in the short term, then so be it.
+OnImplement = "CreateGrudge(ForeignTaxBreak,Capitalist,0.15,1.0f);CreateGrudge(ForeignTaxBreak,_HighIncome,0.15,1.0f);CreateGrudge(ForeignTaxBreak,TradeUnionist,-0.18,1.0f);CreateGrudge(ForeignTaxBreak,Patriot,-0.05,1.0f);CreateGrudge(ForeignTaxBreak,GDP,0.02,1.0f);Creategrudge(ForeignTaxBreak,ForeignRelations,0.05,1.0f);"
+
+[option1]
+Name = Refuse tax break
+Description = These companies aren't the future of this country. They will squeeze every penny in subsidy they can, then relocate anyway. We should be subsidizing home grown high tech companies, not begging for work from multinationals like a third world country.
+OnImplement = "CreateGrudge(ForeignTaxBreak,Capitalist,-0.15,1.0f);CreateGrudge(ForeignTaxBreak,TradeUnionist,0.18,1.0f);CreateGrudge(ForeignTaxBreak,Patriot,0.05,1.0f);CreateGrudge(ForeignTaxBreak,GDP,-0.03,1.0f);Creategrudge(ForeignTaxBreak,ForeignRelations,-0.05,1.0f);"
+

@@ -1,0 +1,12 @@
+<WRAP = 610><FONTNAME = arial16.dds><FONTSIZE = 16><COLOR = 255,255,255,255><BR>
+Until very recently, the richest person alive was the Microsoft Software founder Bill gates. Current estimates suggest it is now Carlos Slim, a Mexican Tycoon. Possibly the first person to be generally referred to as the worlds richest man was the US oil tycoon John D Rockefeller.
+
+<BR>Number of Billionaires by country (2006)<BR>
+	United States 	371
+	Germany 		56
+	Russia 		47
+	India 		36
+	United Kingdom 	34
+	Australia 		30
+	Japan 		27
+<BR>

@@ -1,0 +1,10 @@
+[config]
+Name = CelebrityEndorsement
+GUIName = Celebrity Endorsement!
+Texture = "event_popstar.jpg"
+Description = We live in a celebrity obsessed age. Normally we criticize this phenomena, but not today!  A top pop star has gone on the record as saying that you are doing a superb job! This is going to reflect very nicely in your approval ratings.
+OnView = PlaySound(crowd_cheer.ogg)
+OnImplement = CreateGrudge(CelebrityEndorsement,_All_,0.090,0.640);CreateGrudge(CelebrityEndorsement,CelebrityEndorsement,-0.800,0.800);
+[influences]
+0 = "_random_,0.000,0.200"
+1 = "_winning_,0.85-(0.75*x)"

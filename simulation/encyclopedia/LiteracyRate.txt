@@ -1,0 +1,31 @@
+<WRAP = 760><FONTNAME = arial16.dds><FONTSIZE = 16><COLOR = 255,255,255,255><BR>
+Education Spending as percentage of GDP
+    	Cuba:   			18.7%    	
+   	Sweden: 			7.7%   	
+   	United States: 		5.7%   	
+  	France: 			5.6%   	
+   	United Kingdom: 		5.3%   	
+   	Canada: 			5.2%   	
+   	Germany: 			4.6%   	
+   	Japan: 			3.6%   	
+ <BR>
+ Literacy Rate Comparison:
+   	Norway: 			100 %    	
+   	Cuba: 			99.8 %    	
+   	Russia: 			99.4 %    	
+   	Australia: 			99 %    	
+   	Germany: 			99 %    	
+   	Canada: 			99 %    	
+   	United States: 		99 %    	
+    	Japan: 			99 %    	
+   	United Kingdom: 		99 %    	
+   	Italy: 			98.4 %    	
+  	Costa Rica: 			96 %    	
+   	China: 			90.9 %    	
+  	South Africa: 		86.4 %    	
+   	United Arab Emirates: 		77.9 %    	
+ 	Iran: 			77 %    	
+   	Rwanda: 			70.4 %    		
+  	Pakistan: 			49.9 %    	
+  	Somalia: 			37.8 %    	
+   	Afghanistan: 		28.1 %  

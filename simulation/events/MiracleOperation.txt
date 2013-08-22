@@ -1,0 +1,11 @@
+[config]
+Name = MiracleOperation
+GUIName = Miracle Operation
+Texture = "event_operation.jpg"
+Description = Doctors have successfully reattached a hand to a man who was involved in a serious car accident. The success of the operation has been attributed to our countries superb health care and technical knowledge. This is great news for the image of our public services
+OnView = PlaySound(ecg.ogg)
+OnImplement = CreateGrudge(MiracleOperation,_All_,0.100,0.600);CreateGrudge(MiracleOperation,MiracleOperation,-0.900,0.920);
+[influences]
+0 = "_random_,0.000,0.240"
+1 = "Lifespan,0+(1.0*x)"
+2 = "LiteracyRate,0+(0.22*x)"

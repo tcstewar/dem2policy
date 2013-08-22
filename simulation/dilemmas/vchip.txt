@@ -1,0 +1,21 @@
+
+[dilemma]
+name = "VChip"
+guiname = "V-Chip"
+description = "The V chip bill is a proposal to make it mandatory for all televisions made or sold in this country to include hardware which 'listens' for a signal, broadcast with TV programs which rates that program based on the content, thus allowing parents to block children from viewing such programs"
+
+[influences]
+0 = "_random_,0.3,0.9"
+
+[option0]
+Name="Introduce V Chip"
+Description = "This bill will hand control of kids TV viewing back to their parents where it belongs. We already have rating systems for Movies, and underage children are barred from watching films containing sex or violence. This bill simply extends that control to TV, it still gives ultimate control over viewing to the parents."
+OnImplement = "CreateGrudge(VChip,Conservatives,0.04,1.0);CreateGrudge(VChip,Liberal,-0.05,1.0)"
+
+
+[option1]
+Name="Block the V Chip"
+Description = "This is an unwanted intrusion of government control into the media. Whatever happened to consumer choice and parental responsibility? it should not be the job of the government to decide what TV programs people should allow their children to watch. Keep government out of the media."
+OnImplement = "CreateGrudge(VChip,Conservatives,-0.05,1.0);CreateGrudge(VChip,Liberal,0.04,1.0)"
+
+

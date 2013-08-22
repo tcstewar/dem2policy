@@ -1,0 +1,1 @@
+TutorialWindow("This tab, which appears on a number of different screens, shows some additional 'real-world' information and statistics on the relevant item. You might find the encyclopedia data interesting, and it may help you decide what to do, but it's not necessary to play the game.",610,350);

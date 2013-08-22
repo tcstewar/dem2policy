@@ -1,0 +1,11 @@
+[config]
+Name = MadCowEpidemic
+GUIName = Mad Cow Epidemic
+Texture = "event_cow.jpg"
+Description = Bovine spungiformide encepalopathy, also known as BSE or 'Mad Cow Disease' has infected our national herd. This is absolutely devastating news for farmers who will be forced to have most of their cattle destroyed. Advocates of organic farming are blaming a lack of government support for organic farming as one of the causes, but either way, farmers are furious.
+OnView = PlaySound(cow.ogg)
+OnImplement = CreateGrudge(MadCowEpidemic,Farmers,-0.660,0.670);CreateGrudge(MadCowEpidemic,MadCowEpidemic,-0.950,0.950);SpendAdjusted(8200);
+[influences]
+0 = "_random_,0.300,0.950"
+1 = "OrganicSubsidy,0-(0.37*x)"
+2 = "ScienceFunding,0-(0.2*x)"

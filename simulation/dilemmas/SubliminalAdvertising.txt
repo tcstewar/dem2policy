@@ -1,0 +1,19 @@
+[dilemma]
+name = SubliminalAdvertising
+guiname = Subliminal Advertising
+description = Subliminal advertising is a series of techniques where adverts appeal to the subconscious mind, often used in TV adverts where quick images are flashed very briefly onscreen, unknown to the viewer but having a subconscious effect. Modern techniques also work with radio adverts. There have been calls to clarify the legal position of such methods.
+
+[influences]
+0 = _default_,0.5+(0*x)
+1 = _random_,0,0.5
+
+[option0]
+Name = Ban subliminal techniques
+Description = As though we don't have enough adverts in our life already, companies are now using underhand techniques to play with the minds of our citizens! This is outrageous, and a gross infringement of peoples human rights. Not to mention the fact that this will enable advertisers to get people to purchase products they may not be able to afford.
+OnImplement = "CreateGrudge(SubliminalAdvertising,Liberal,-0.09,1.0f);CreateGrudge(SubliminalAdvertising,Capitalist,0.05,1.0f);"
+
+[option1]
+Name = Allow adverts
+Description = This isn't as simple as it seems, because where do you draw the line on such techniques? Is using a beautiful woman in a car advert subliminal? It's a legal minefield, and we are best off not getting the state involved. Subliminal adverts should be given the go ahead, nobody is really being hurt, so why legislate?
+OnImplement = "CreateGrudge(SubliminalAdvertising,Liberal,0.05,1.0f);CreateGrudge(SubliminalAdvertising,Capitalist,-0.04,1.0f);"
+

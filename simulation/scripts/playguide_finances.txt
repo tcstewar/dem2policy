@@ -1,0 +1,1 @@
+PlayGuideWindow("This window shows details of your countries finances,Shown over 3 tabs. This first tab shows a pie chart with a breakdown of where your government is currently getting its money. Click the expenditure tab",20,350,FALSE);ClearAllowedButtons();SetAllowedButton(ExpenditureTab);

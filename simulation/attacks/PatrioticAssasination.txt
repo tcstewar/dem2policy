@@ -1,0 +1,12 @@
+[config]
+Name = PatrioticAssasination
+GUIName = Assassination!
+UsedBy = TheTrueWay
+MinStrength = 40
+Cost = 40
+MinSize = 8
+SuccessChance = 0.25
+SuccessText = 
+OnSuccess = PlaySound(ak47.ogg);GameOver("Patriotic Assassination","At 07.54 this morning, four men claiming to be from the ultra-nationalist organization 'The True Way', burst into the parliament building with machine guns and launched an attack on the very heart of government. Among the 14 deaths that occurred before our security teams could take them down, was our President (You). Game Over...");
+FailureText = 
+OnFailure = CreateNamedGrudge(Assassination attempt,Patriot,-0.25,0.8);CreateNamedGrudge(Assassination attempt,_All_,-0.12,0.9);TriggerEvent(FailedPatrioticAssassination);

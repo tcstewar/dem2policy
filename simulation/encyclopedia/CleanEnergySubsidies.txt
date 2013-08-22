@@ -1,0 +1,29 @@
+<WRAP = 760><FONTNAME = arial16.dds><FONTSIZE = 16><COLOR = 255,255,255,255>
+<BR>
+By far the fastest growing sector of 'clean' energy at the time of writing is wind power. There are currently approx 73,000 MegaWatts of wind power installed around the world. Estimates of the total potential wind energy on land are as high as 72 Terrawatts, or 15 times current world energy usage. Offshore wind farms in some way have greater potential, experiencing 90% faster winds, but the practical problems of offshore installations are set against this.<BR><FONTNAME = arialbold16.dds>
+Wind Energy Installations (in megawatts)
+<BR><FONTNAME = arial16.dds>
+    	Germany:   		21,283 	
+   	Spain: 		12,801 	
+  	United States: 	12,634   	
+   	India: 		7,231   	
+   	Denmark: 		3,140   	
+    	United Kingdom: 	2,293   	
+ 	Italy: 		2.123   	
+ 	Portugal		1,874
+   	Netherlands: 		1,560   	
+   	Japan: 		1,394   	
+   	Austria: 		965 
+<BR><FONTNAME = arialbold16.dds>
+Electricity production - Percentage from fossil fuels
+<BR><FONTNAME = arial16.dds>
+	China:   		80.2 % 
+	United Kingdom:   	73.8 % 
+	United States:   	71.4 %
+	Russia:   		64.3 % 
+	New Zealand:   	31.6 %
+	Canada:   		28.0 %
+	Norway:   		 0.4 % 
+<BR>	
+
+

@@ -1,0 +1,12 @@
+<WRAP = 760><FONTNAME = arial16.dds><FONTSIZE = 16><COLOR = 255,255,255,255><BR>
+The first curbside collection program for recycling waste was started in Berkeley, California in 1973, collecting used newspapers.<BR>
+USA The US situation varies by state, and even city by city. New York and Seattle have created laws which allow for fines to be levied against citizens who throw recyclable products into landfill. New York spends approximately $57 million a year on it's recycling programs.<BR>
+UK
+UK recycling rates vary widely as the provision of curbside collection facilities is arranged by local councils. Some are very low, such as Newham in London (5.52%) whereas some are much better including Guildford (23.57%). UK rates are rising overall, with domestic recycling doubling between 2001-2005. The overall rate for the UKs domestic recycling in 2005 was 23%. By comparison, the best recyclers in Europe are Germany (57%) and the Netherlands (64%).
+<BR>
+Germany
+Germany set up a dual system of waste collection in 1991. The system is entirely industry funded, operated by the 'Duales System Deutschland' (DSD). The companies pay a fee to the DSD in order to have a 'green dot' placed on their packaging. Consumers sort the green dot waste from other waste, and it is collected for recycling by the DSD, at the manufacturers expense. The system worked so well it was copied by a further 21 European countries.
+<BR>
+Pay As You Throw (PAYT)
+PAYT is a pricing model for waste collection designed to encourage recycling. Basically, rubbish collection is paid for on a weight basis, so those who recycle more will pay less. This is designed to alleviate the problem of those who recycle more and generate less waste effectively subsidizing those who do not. The downside to PAYT is that it has the potential to encourage 'fly-tipping' by people seeking to avoid paying excessive waste collection charges. It can also be seen as a form of 'stealth tax'.
+

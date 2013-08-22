@@ -1,0 +1,31 @@
+<WRAP = 760><FONTNAME = arial16.dds><FONTSIZE = 16><COLOR = 255,255,255,255><BR>
+GDP is 'Gross Domestic product, generally used as a measure to compare the strength of a countries economy. Technically GDP is derived as follows:
+<BR><FONTNAME = arialbold16.dds><FONTSIZE = 16><COLOR = 255,255,255,255>
+	GDP = consumption + investment + (government expenditure) + (exports - imports)
+<BR><FONTNAME = arial16.dds><FONTSIZE = 16><COLOR = 255,255,255,255>
+There are many reasons why GDP is not an entirely accurate measure of economic activity. It ignores voluntary, unpaid work, such as open-source software development, people caring for elderly relatives, and similar activities. It makes so value judgement on whether a given piece of economic activity is truly beneficial. Taken to extremes, if half the country worked efficiently full time digging holes, and the other filling them, this could result in high GDP, but would not mean a truly wealthy nation or high standard of living. Similarly, activities which cause damage outside the market mechanism (such as pollution) are not counted as a reduction in GDP, even though they reduce the standard of living.
+GDP is a popular measure, but there are other measurements used for economies, such as GNP (gross national product), which takes into account earnings from abroad.
+<BR><FONTNAME = arialbold16.dds><FONTSIZE = 16><COLOR = 255,255,255,255>
+Raw GDP in Billions of dollars
+<BR><FONTNAME = arial16.dds><FONTSIZE = 16><COLOR = 255,255,255,255>
+	#1    	United States:   	$11,667	
+	#2   	Japan: 		$4,623
+	#3   	Germany: 		$2,714	
+	#4   	United Kingdom: 	$2,140
+	#5   	France: 		$2,002
+	#6   	Italy: 		$1,672
+	#7   	China: 		$1,649
+<BR><FONTNAME = arialbold16.dds><FONTSIZE = 16><COLOR = 255,255,255,255>	
+GDP per person:
+<BR><FONTNAME = arial16.dds><FONTSIZE = 16><COLOR = 255,255,255,255>
+	#1    	Luxembourg:   	$66,463
+	#2   	Norway: 		$54,467
+	#3   	Switzerland: 		$47,999	
+	#4   	Ireland: 		$45,707  	
+	#5   	Denmark: 		$44,742  	
+	#6   	Iceland: 		$41,720  	
+	#7   	United States: 	$39,452
+	
+	
+
+

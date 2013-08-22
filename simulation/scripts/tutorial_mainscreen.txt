@@ -1,0 +1,1 @@
+TutorialWindow("This is the main screen that shows the state of your country. It looks more complex than it is. hovering your mouse over icons will show you how they are connected to each other, and clicking an icon will give you more information and help on that item.",50,350);

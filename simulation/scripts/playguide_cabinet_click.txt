@@ -1,0 +1,1 @@
+PlayGuideWindow("Now let's take a look at the ministers who help you run the country. Click the button to the right of the reports button, with the 2 portraits on it.",312,30,FALSE);SetAllowedButton(CabinetButton);CloseReports();

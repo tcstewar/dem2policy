@@ -1,0 +1,19 @@
+<WRAP = 760><FONTNAME = arial16.dds><FONTSIZE = 16><COLOR = 255,255,255,255><BR>
+In 2005, the UN estimated there were 190 million international migrants, representing approximately 3% of the world population. The European union allows free migration between member states, although there have been recent calls to curb this in some countries (such as the UK) that have received very high levels of immigration. Immigration can be the result of 'push' factors, which encourage people to leave their country of origin (maybe due to natural disasters, civil unrest or wars), or 'pull' factors such as people seeking out higher wages, better education, or even 'retirement' immigration, where people retire to a country with a preferred climate.<BR>
+Approximate Immigration levels in thousands:<BR>
+   	Germany:   		648.8    	
+   	Japan: 		345.8    	
+   	United Kingdom: 	288.8   	
+   	Italy: 		271.5    	
+   	France: 		119.3    	
+   	Netherlands: 		91.4    	
+   	Switzerland: 		87.4    	
+   	Belgium: 		68.6    	
+   	Austria: 		66.0   	
+   	New Zealand: 	38.8    	
+   	<BR>
+Immigration is a hotly debated political issue. Economists cannot conclude easily whether the effects of immigration are positive or negative, the final answer being highly dependent on how well immigrants skills match those in need in the country in question, the level of unemployment in the country, and the proportion of immigrants who work, as opposed to those who claim state benefits.<BR>
+The political arguments in favor or against immigration are equally complex. There are arguments against immigration on nationalist (patriotic), environmental (overpopulation concerns), economic and cultural basis. In the UK, there has been much debate about the possible links between immigration and racial tension, even leading to terrorism.
+   	
+
+

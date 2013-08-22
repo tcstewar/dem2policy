@@ -1,0 +1,13 @@
+[config]
+Name = RocketCrash
+GUIName = Rocket Crash
+Texture = "event_explosion.jpg"
+Description = A high profile rocket launch has gone wrong, dramatically setting back our nations space program. The Failure is being seen as a general sign of a lack of technical ability amongst our citizens, and there are calls for the govt. to invest more in technology and education
+OnView = 
+OnImplement = CreateGrudge(RocketCrash,RocketCrash,-0.900,0.920);SpendAdjusted(100);
+[influences]
+0 = "_random_,0.600,1.200"
+1 = "LiteracyRate,0-(0.4*x)"
+2 = "InternetAccess,0-(0.35*x)"
+3 = "TechnologyGrants,0-(0.4*x)"
+4 = "ScienceFunding,0-(0.2*x)"

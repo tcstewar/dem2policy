@@ -1,0 +1,23 @@
+<WRAP = 760><FONTNAME = arialbold16.dds><FONTSIZE = 16><COLOR = 255,255,255,255><BR>
+Hospital Beds per 1,000 people<BR>
+<FONTNAME = arial16.dds>
+	Monaco:   		19.57
+	Japan:   		14.3
+	Russia:   		10.5
+	Germany:   		8.9
+	New Zealand:   	6.1
+	United Kingdom:   	4.2
+	Canada:   		3.7
+	United States:   	3.3
+	Algeria:   		2.1
+	Pakistan:   		0.7
+<BR>	
+An interesting comparison can be made with the money the government spends on public health care:
+<BR>
+<FONTNAME = arialbold16.dds>Public expenditure per capita on Health Care 
+<BR><FONTNAME = arial16.dds>
+   	Germany:   		$2,063.00
+   	United States:   	$2,051.00
+   	Japan:   		$1,542.00 
+   	United Kingdom:   	$1,429.00 
+   	New Zealand:   	$1,266.00

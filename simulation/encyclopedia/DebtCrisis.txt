@@ -1,0 +1,22 @@
+<WRAP = 760><FONTNAME = arial16.dds><FONTSIZE = 16><COLOR = 255,255,255,255><BR>
+Public Debt as a percentage of GDP:
+   	Lebanon:   		209%   	
+   	Japan: 		176%		
+  	Italy: 		107% 		
+  	Israel: 		89%   	 	
+   	United States: 	64% 	
+  	France: 		64%	
+   	Brazil: 		50%	
+   	United Kingdom: 	42.2%   	 	
+   	Saudi Arabia: 	32.5%   		
+   	Russia: 		8%  	 	
+   	Hong Kong: 		1%
+  <BR>
+  Total public and private debt owed to non-residents (millions)
+	United States:   	$10,040,000  	
+	United Kingdom: 	$8,280,000   	
+	Germany: 		$3,904,000	
+	France: 		$3,461,000
+ 	Japan:   		$1,547,000
+ 	Russia:   		$287,400
+ 	United Arab Emirates:  	 $39,100

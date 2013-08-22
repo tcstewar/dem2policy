@@ -1,0 +1,12 @@
+[config]
+Name = GreenAssasination
+GUIName = Assassination
+UsedBy = GreenBrigade
+MinStrength = 40
+Cost = 40
+MinSize = 8
+SuccessChance = 0.25
+SuccessText = 
+OnSuccess = PlaySound(ak47.ogg);GameOver("Eco-Attack!","You have been assassinated by Green Terrorists. This morning, whilst giving a speech to local party activists, the event was stormed by a small group of armed protesters. Security personnel opened fire, and in the ensuing firefight you were hit several times. We have captured the people responsible for your death, who identified themselves as members of the extremist eco-terror group known as the 'Green Brigade'. I'm afraid it's all over for you...");
+FailureText = ""
+OnFailure = CreateNamedGrudge(Assassination attempt,Patriot,-0.25,0.8);CreateNamedGrudge(Assassination attempt,_All_,-0.12,0.9);TriggerEvent(FailedGreenAssassination);

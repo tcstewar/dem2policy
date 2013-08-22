@@ -1,0 +1,9 @@
+[config]
+Name = FailedCapitalistAssassination
+GUIName = Failed Assassination Attempt!
+Texture = "event_topsecret.jpg"
+Description = "Secret service agents today saved you from a highly organized attempt to assassinate you. A lone sniper, with a high-tech rifle was arrested just 200 feet from where you were planning on meeting some teachers at a school opening ceremony. The assassin has confirmed intelligence service suspicions that he was hired by a top secret group of hyper-rich industrialists known as 'The Battenbrug Group'. it seems there are a number of extremist capitalist people who want you dead, and your government out of office. be careful."
+OnView = PlaySound(ak47.ogg);
+OnImplement = 
+[influences]
+

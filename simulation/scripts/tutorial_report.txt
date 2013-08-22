@@ -1,0 +1,1 @@
+TutorialWindow("This screen shows a summary of the state of the country at this time. It will also sometimes contain icons for important messages from ministers, and notification of new situations, events or dilemmas that require your attention. Clicking on a section with an icon will provide more information",30,400);

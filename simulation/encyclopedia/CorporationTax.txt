@@ -1,0 +1,13 @@
+<WRAP = 760><FONTNAME = arial16.dds><FONTSIZE = 16><COLOR = 255,255,255,255>
+<BR>
+2004 Corporation tax rates:
+Japan				42%
+United States			35%
+China				33%
+United Kingdom			30%
+Russia				24%
+Ireland				12.5%
+Bulgaria			10%
+<BR>
+The situation in every country is, of course, much more complex than this. In the US, the federal rate is 35%, and state taxes range from 0 to 12%. In the UK, different rates apply for smaller companies with earnings up to £300k, although the rates have changed dramatically in both directions in recent years. very annoying when you run a games company...
+Japan also has varying rates based on the size of a company.

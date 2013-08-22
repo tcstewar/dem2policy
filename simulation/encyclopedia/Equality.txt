@@ -1,0 +1,26 @@
+<WRAP = 760><FONTNAME = arial16.dds><FONTSIZE = 16><COLOR = 255,255,255,255><BR>
+A popular method for calculating the level on inequality in a country is called the Gini Coefficient, or Gini Index, where a value of 1 represents total inequality (1 person has everything) and 0 represents total equality, where everyone's income is the same. The current Gini index values for selected countries are as follows:<BR>
+	Denmark:		0.23
+	France:		0.26
+	Germany:		0.28
+	India:		0.32
+	Australia		0.35
+	United Kingdom: 	0.36
+	Russia:		0.40
+	Iran:		0.43
+	China:		0.44
+	United States:	0.45
+	Mexico:		0.54
+	South Africa:	0.59
+	Namibia:   		0.70
+	<BR>
+A different way to measure inequality is the amount of income earned by the richest 10% in each country. Figures below:
+<BR>
+	Sweden:		20.1%
+	Germany:		23.7%
+	France:		25.1%
+	United Kingdom:	27.7%
+	United States:	30.5%
+	Russia:		38.7%
+	Mexico:		41.7%
+	Swaziland:		50.2%

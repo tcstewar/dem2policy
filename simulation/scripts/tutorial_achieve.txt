@@ -1,0 +1,1 @@
+TutorialWindow("This window shows all the achievements you have reached with this particular country (over multiple games). The achievements depend on various (hidden) criteria. You can reset all the achievements if you want to increase the games difficulty and try to get them again under tougher circumstances.",50,350);

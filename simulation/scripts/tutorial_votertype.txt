@@ -1,0 +1,1 @@
+TutorialWindow("This window shows details on this specific group of voters. The central graph shows how high an opinion this group has of your government, and how it has changed over time. The influences show the main reasons this group feels the way they do, with red being a negative influence, and green a positive one.",20,430);

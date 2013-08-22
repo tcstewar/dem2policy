@@ -1,0 +1,22 @@
+<WRAP = 610><FONTNAME = arialbold16.dds><FONTSIZE = 16><COLOR = 255,255,255,255><BR>
+Percentage of workforce working in agriculture<BR>
+<FONTNAME = arial16.dds>
+	United Kingdom:   	1.8% 
+	United States:   	2.0%
+	Canada:   		2.3%
+	France:   		3.2%
+	Australia:   		4.5%
+	Russia:   		10.2% 
+	Mexico:   		20.9%
+	China:   		66.0% 
+<BR><FONTNAME = arialbold16.dds>
+Corn yield in metric tons per hectare:<BR>
+<FONTNAME = arial16.dds>
+	United States:   	8.9
+	Canada:   		7.8 
+	France:   		7.2
+	Russia:   		3.0
+	India:   		1.9
+<BR><FONTNAME = arialbold16.dds>US Farmers<BR>
+<FONTNAME = arial16.dds>
+In 2004, there were approx 834,000 agricultural workers in the US, and the average hourly income for them was $7.70 for harvesting and $8.31 for tending to animals. US labor laws allow farmers children to work on the farm without the normal child labor regulations applying. In 2003, the US produced 256 million metric tons of corn, it's #1 crop.

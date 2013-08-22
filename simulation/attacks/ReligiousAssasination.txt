@@ -1,0 +1,12 @@
+[config]
+Name = ReligiousAssasination
+GUIName = Assassination!
+UsedBy = ArmyOfGod
+MinStrength = 40
+Cost = 40
+MinSize = 8
+SuccessChance = 0.25
+SuccessText = 
+OnSuccess = PlaySound(event_carbomb.ogg);GameOver("Religious Assassination","Today is a dark day for Democracy, as a group of religious extremists calling themselves 'The Army of God' succeeded in assassinating the democratically elected ruler of this country. A combined attack involving half a dozen gunman, and a powerful car bomb, overwhelmed our security services at a recent public speaking event. twelve people died, including you. Game Over.");
+FailureText = ""
+OnFailure = CreateNamedGrudge(Assassination attempt,Patriot,-0.25,0.8);CreateNamedGrudge(Assassination attempt,_All_,-0.12,0.9);TriggerEvent(FailedReligiousAssassination);

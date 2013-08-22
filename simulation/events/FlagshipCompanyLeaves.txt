@@ -1,0 +1,10 @@
+[config]
+Name = FlagshipCompanyLeaves
+GUIName = Flagship Company Leaves
+Texture = "event_factoryshut.jpg"
+Description = Inter-Tel Communications, one of the largest and most successful telecom companies in the country has announced that it is shifting its headquarters to another country to save on its tax bill. This is going to cause some unemployment, as well as accusations that our government is taxing businesses too heavily
+OnView = PlaySound(event_closefactory.ogg)
+OnImplement = CreateGrudge(FlagshipCompanyLeaves,Capitalist,-0.100,0.790);CreateGrudge(FlagshipCompanyLeaves,Unemployment,0.050,0.850);CreateGrudge(FlagshipCompanyLeaves,FlagshipCompanyLeaves,-1.000,0.960);
+[influences]
+0 = "CorporationTax,0+(0.5*x)"
+1 = "SalesTax,0+(0.55*x)"

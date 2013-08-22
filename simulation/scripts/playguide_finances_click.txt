@@ -1,0 +1,1 @@
+PlayGuideWindow("The next two buttons show your achievements and the games menu, so lets go to the finance button next, which has a dollar icon.",312,20,FALSE);SetAllowedButton(FinanceButton);ClosePartyWindow();

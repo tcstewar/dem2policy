@@ -1,0 +1,1 @@
+PlayGuideWindow("Now lets click some of the buttons that take us to other screens, found at the top right of the screen. Click the gun icon on the left of the strip of icons at the top right of the screen ",260,20,FALSE);SetAllowedButton(ThreatButton);

@@ -1,0 +1,11 @@
+<WRAP = 760><FONTNAME = arial16.dds><FONTSIZE = 16><COLOR = 255,255,255,255>
+<BR>
+Countries that allow stem cell research:
+Sweden, Finland, Belgium, Greece, UK, Denmark Netherlands, China, Japan, Korea, Taiwan, Israel, Iran.
+<BR>
+Countries banning it's use:
+Germany, Austria, Ireland, Italy, Portugal, New Zealand, Most of Africa and South America.
+<BR>
+The policy situation in the USA is complex. The Clinton administration passed a law that refused federal funding for research on embryos created purely for research purposes, but allowed research on embryos left over from IVF. Congress included the 'Dickey Amendment' that prohibits all federal funding for research that destroys an embryo, regardless of source. Despite this, stem cell research continues, because the private funding of stem cell research remains unrestricted.
+<BR>
+In 2007, President George Bush vetoed the Stem Cell Research Enhancement Act, despite the bill passing the house and the senate. This was the first time President Bush had used his veto.

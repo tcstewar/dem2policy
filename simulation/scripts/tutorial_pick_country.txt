@@ -1,0 +1,1 @@
+TutorialWindow("Welcome to Democracy 2! This screen is where you select which country you would like to be the ruler of. You can play the countries in any order you like. Each country will be set up differently, and have different challenges and levels of difficulty.",312,30);

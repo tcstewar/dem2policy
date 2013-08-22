@@ -1,0 +1,9 @@
+<WRAP = 760><FONTSIZE = 16><COLOR = 255,255,255,255><FONTNAME = arialbold16.dds>United States National Highway System.<BR>
+<FONTNAME = arial16.dds>The NHS comprises 160,000 miles of roads. Although that represents only 4% of the total by distance, the NHS carries 40% of highway traffic and 75% of truck traffic. One part of this system is the 'Interstate highway system'. The initial cost for this system was estimated at $25 billion over 12 years but the final cost was $114 billion over 35 years. The interstate highways are funded by the federal government.
+The busiest section of the interstate system is the 405 freeway in Los Angeles.<BR>
+
+<FONTNAME = arialbold16.dds>The German Autobahn<BR>
+<FONTNAME = arial16.dds>Germany's 'autobahn' network was originally named the 'Reichsautobahn' (Motorways of the Reich). It's the third largest in the world (after the US and China). Construction began in 1931. The autobhan is famous for having no speed limits for cars, although their is a 'recommended' top speed of 130 km/h. The autobahn has a toll system, but it only applies to trucks weighing 12 tons or more.<BR>
+
+<FONTNAME = arialbold16.dds>The most expensive road in the world?<BR>
+<FONTNAME = arial16.dds>In 2002, plans to widen a 51 mile stretch of the UK's M6 motorway were estimated to cost £670 million. By July 2007 the cost had risen to £2.9 billion, which works out as £897 per inch, and twice the UK's aid budget to Africa. Sadly this is not the only expensive road project in the UK. The widening of the M1 has now cost £5.1 billion.<BR>

@@ -1,0 +1,15 @@
+<WRAP = 760><FONTNAME = arialbold16.dds><FONTSIZE = 16><COLOR = 255,255,255,255><BR>
+Total route length of railway system per one million people:
+<BR><FONTNAME = arial16.dds>
+Australia:   		2,336.184km
+Canada:   		1,451.536 km
+Sweden:   		1,271.275 km
+United States:   		752.491 km
+Russia:   		616.483 km
+Germany:   		572.821 km
+United Kingdom:   	282.281 km
+<BR>
+<FONTNAME = arialbold16.dds><BR>
+History of UK Rail ownership
+<FONTNAME = arial16.dds>
+The UK situation is complex. The 'big four' UK rail companies were 'nationalized' in 1948 and run by the state under the name 'British Rail'. The right-wing conservative government of John Major in 1993 privatized British Rail, splitting the running of the trains themselves into 25 different regional train companies and handing control of the stations and track to a company called Railtrack. Following a number of high profile accidents, and other problems, Railtrack was eventually effectively taken back into state control, when it was sold to 'Network Rail', a 'not for dividend' company whose precise status is unclear, although the UK 'office for national statistics' insists it is a private sector company, despite it having no shareholders. It seems likely that the reason for the confusion is the desire by the Labour government to take public ownership, but not be seen to actively 'nationalize' the railways, which evokes memories of 'old labour' which the current party is keen to distance itself from. The individual train operating companies still remain traditional private shareholder-controlled businesses.

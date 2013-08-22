@@ -1,0 +1,24 @@
+<WRAP = 760><FONTNAME = arial16.dds><FONTSIZE = 16><COLOR = 255,255,255,255><BR>
+Broadband access (lines for every 10 people)
+   	Korea, South:   	2.46 	
+  	Hong Kong: 		2.33	
+  	Switzerland: 		2.07	
+   	Canada: 		1.93
+   	Japan: 		1.64
+   	France: 		1.47	
+   	United Kingdom: 	1.46
+   	United States: 	1.38
+   	Germany: 		1.02 
+  	Italy: 		1.01	
+  	Russia: 		0.09	
+ <BR>
+ Websites per 1,000 people:
+     	Germany:   		84.7 	
+    	United Kingdom: 	64.2 	
+    	United States: 	63.7 	
+    	Canada: 		32.9 	
+    	New Zealand: 	15.3	
+    	Australia: 		14.5  	
+    	Italy: 		12.9  	
+    	France: 		10.5 	
+   	Japan: 		2.9 	

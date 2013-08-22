@@ -1,0 +1,24 @@
+<WRAP = 760><FONTNAME = arial16.dds><FONTSIZE = 16><COLOR = 255,255,255,255>2005 Retail Gas Price comparison<BR>
+Netherlands				$6.48 / Gallon
+Italy					$5.96 / Gallon
+Sweden				$5.80 / Gallon
+United Kingdom				$5.79 / Gallon
+Germany				$5.57 / Gallon
+France				$5.54 / Gallon
+Spain				$4.55 / Gallon
+Japan				$4.24 / Gallon
+Brazil				$3.12 / Gallon
+Cuba				$3.03 / Gallon
+Canada				$2.87 / Gallon
+Russia				$2.10 / Gallon
+USA				$1.98 / Gallon
+Saudi Arabia				$0.91 / Gallon
+Venezuela				$0.12 / Gallon
+<BR>
+In the UK, different rates of tax are charged on 'ultra-low sulphur' petrol and non-ULS petrol, to encourage the use of ULSP. The UK also charges VAT on fuel, on top of the applied petrol tax. 
+<BR>
+In 1993 in the UK, the Conservative chancellor Norman Lamont introduced the 'fuel duty escalator' which pledged to raise fuel tax by 3% above inflation each year. In 1995, this was raised to 5%, and the new Labour chancellor Gordon brown raised it to 6% in 1997. By 2000, fuel prices had raised enough to cause a damaging protest that bought the whole country to a standstill. As a result, the fuel duty escalator was scrapped.
+<BR>
+The USA has both state fuel taxes and a federal gasoline tax. In 2005 this stood at $0.184 / Gallon. This is added to average state taxes of $0.22. In comparison, the UK tax rate on low-sulphur petrol is currently £0.48 per liter. This is roughly $4.35 per gallon in tax, on top of which VAT (sales tax) is also applied.
+<BR>
+Some countries 'ring-fence' the earnings from fuel tax to ensure it is spent on road improvements and maintenance. In other countries, such as the UK, the amount raised is surplus to such requirements, and becomes a part of general taxation.

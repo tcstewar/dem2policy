@@ -1,0 +1,28 @@
+<WRAP = 760><FONTNAME = arial16.dds><FONTSIZE = 16><COLOR = 255,255,255,255>Emission data from 2003 per country (total amount in thousands of metric tons). This data has become rapidly out of date since the rapid economic growth of Asia. in 2006, it was announced that China was now the worlds largest emitter of CO2.
+<BR>
+	#1 United States:		5,762,050
+	#2 China:			3,473,600
+	#3 Russia:			1,540,360
+	#4 Japan:			1,224,740
+	#5 India:			1,007,980
+	#6 Germany:			837,425
+	#7 United Kingdom:		558,225
+	#8 Canada:			521,404
+	#9 Italy:			446,596
+	#10 Mexico:			385,075
+<BR>
+Per capita (per 1,000 people):
+<BR>
+	#1 Qatar:			40.6735
+	#2 United Arab Emirates:		28.213
+	#3 Kuwait:			25.0499	
+	#4 Bahrain:			20.0253	
+	#5 United States:		19.4839	
+	#6 Luxembourg:		17.977
+	#7 Trinidad and Tobago:		16.8278	
+	#8 Australia:			16.5444	
+	#9 Canada:			15.8941	
+	#10 Singapore:		13.8137
+<BR>
+The main process for reducing global CO2 emissions at the time of writing is the 'Kyoto Protocol' established in 1997, under which 'developed' countries aimed to cut emissions to 5% below 1990 levels by 2008-12.
+

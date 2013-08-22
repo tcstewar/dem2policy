@@ -1,0 +1,20 @@
+[dilemma]
+name = LAND MINE BAN
+guiname = Land mine ban
+description = An engineering company in our country has just won a contract to manufacture and supply land mines for foreign countries. At the moment there is no specific law that prohibits the company from making these products, but there is widespread public debate that we should ban the production of land mines within our borders.
+
+[influences]
+0 = _default_,0.3+(0*x)
+1 = ViolentCrimeRate,0+(0.5*x)
+2 = CrimeRate,0+(0.5*x)
+
+[option0]
+Name = Ban land mines
+Description = Land mines cause so many civilian deaths that there really is no way we should condone the manufacture of such weapons. They are a crude weapon dating back to the first world war and there is no justification for their use today. If banning these weapons costs us a handful of jobs then that's a price we should be happy to pay.
+OnImplement = "CreateGrudge(LAND MINE BAN,Liberal,0.11,1.0f);CreateGrudge(LAND MINE BAN,GDP,-0.01,1.0f);CreateGrudge(LAND MINE BAN,Patriot,-0.09,1.0f);"
+
+[option1]
+Name = Reject law
+Description = Its very easy to say we should ban the manufacture of land mines, but what next? stop making guns? handcuffs? This would be a step towards dismantling our whole arms industry which would cost jobs and hurt investor confidence. It's not the job of the state to interfere in what products a company manufactures.
+OnImplement = "CreateGrudge(LAND MINE BAN,Liberal,-0.11,1.0f);CreateGrudge(LAND MINE BAN,Capitalist,0.08,1.0f);"
+

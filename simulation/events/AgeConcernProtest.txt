@@ -1,0 +1,10 @@
+[config]
+Name = AgeConcernProtest
+GUIName = Age Concern Protest
+Texture = "event_elderly.jpg"
+Description = A major pressure group representing the interests of the elderly has staged a dramatic and noisy protest in our capital city. The groups leaders have heavily criticized government policies and the media is sympathetic to their cause
+OnView = 
+OnImplement = CreateGrudge(AgeConcernProtest,_All_,-0.110,0.700);CreateGrudge(AgeConcernProtest,AgeConcernProtest,-0.800,0.900);
+[influences]
+0 = "_random_,0.000,0.300"
+1 = "Retired,0.12-(1.0*x)"

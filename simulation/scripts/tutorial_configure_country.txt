@@ -1,0 +1,1 @@
+TutorialWindow("This is where you can customize the country to suit your preference. We suggest leaving the sliders until you are familiar with the game, but you may wish to change the names of the political parties, the term length and the currency used by this country.",50,350);

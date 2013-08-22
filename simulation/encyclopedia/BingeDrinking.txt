@@ -1,0 +1,17 @@
+<WRAP = 760><FONTNAME = arial16.dds><FONTSIZE = 16><COLOR = 255,255,255,255><BR>
+In the UK, A study by the Prime Ministers strategy unit estimated the cost of Binge Drinking to the UK at £20 billion a year, chiefly from an estimated 17 million working days lost per year due to hangovers. The cost to the national health service was £1.7 Billion. The study also estimated there wee 22,000 extra premature deaths per year in the UK due to alcohol related problems. 40% of accident & emergency related admissions were alcohol related, with up to 70% being alcohol related between midnight and 5AM.
+Alcohol consumption (liters per capita):
+	France: 		14.8	
+	Ireland: 		13.5 		
+	Spain: 		11.7		
+	United Kingdom: 	11.2  	
+	Austria: 		11.1 	
+	Switzerland: 		10.8   	
+	Germany: 		10.2 	
+	Australia: 		9.8 	
+	New Zealand: 	8.9   	
+	United States: 	8.3  	
+	Canada: 		7.8   	
+	Japan: 		7.6 	
+<BR>
+

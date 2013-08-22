@@ -1,0 +1,35 @@
+<WRAP = 760><FONTNAME = arial16.dds><FONTSIZE = 16><COLOR = 255,255,255,255>Income tax was first introduced to the west in Britain in 1798 by Pitt the younger, to pay for the Napoleonic Wars. In the US, the tax was introduced in 1861. 
+Income tax is generally calculated using 'marginal rates', so someone in the top 'tax bracket' does not pay the top rate on their entire income, but only pays the top rate on income above that point at which that rate is levied. In addition, many countries have a personal tax allowance, which is a level of income which is untaxed, for everyone. As a result, people who are on very low earnings, beneath this allowance, will pay no income tax at all.
+The current top marginal rates of income tax are as follows:
+<BR>	
+	Australia		48.5%	
+	Austria		49.3%	
+	Belgium		68.0%	
+	Canada		46.4%	
+	Denmark		63.3%		
+	France		46.5%	
+	Germany		53.8%	
+	Ireland		50.5%	
+	Italy		51.9%	
+	Japan		49.5%	
+	Korea		47.8%		
+	Netherlands		60.0%	
+	New Zealand		39.00%	
+	Norway		55.3%	
+	Portugal		46.0%	
+	Sweden		55.4%	
+	United Kingdom	40.0%	
+	United States		48.0%		
+<BR>
+Income tax rates change often with new governments. Before Ronald Reagan, the US had a top rate of tax of 70.0%, whereas in 2004, it had dropped to just 35%. In 2006, the US income tax rates were as follows:
+<BR>
+	$0 - $7,550	10%: 
+	$7,551 - $30,650	15%: 
+	$30,651 - $74,200	25%: 
+	$74,201 - $154,800	28%: 
+	$154,801 - $336,550	33%: 
+	$336,551 and above	35%: 
+
+
+
+

@@ -1,0 +1,18 @@
+[dilemma]
+name = BanFoxHunting
+guiname = Ban Fox Hunting
+description = After years of debate a law is now before parliament concerning the banning of Fox Hunting. Opponents of hunting claim that the sport is cruel, but those defending it claim that its a traditional rural pastime and attempts to ban it are based on the class divide.
+
+[influences]
+0 = _random_,0.4,0.9
+
+[option0]
+Name = Ban Fox Hunting
+Description = Nobody disputes that fox the population needs to be controlled, but chasing them with hounds and ripping them to pieces cannot be the most humane way to do this. This is an outdated and barbaric sport that cannot be tolerated by a civilized society. Ban it now!
+OnImplement = "CreateGrudge(BanFoxHunting,Farmers,-0.18,1.0f);CreateGrudge(BanFoxHunting,Conservatives,-0.11,1.0f);CreateGrudge(BanFoxHunting,Liberal,0.14,1.0f);CreateGrudge(BanFoxHunting,Socialist,0.06,1.0f);CreateGrudge(BanFoxHunting,Unemployment,0.04,1.0f);"
+
+[option1]
+Name = Leave Hunting Alone
+Description = Approximately 7,000 people in rural communities are directly employed in hunting, and the knock-on effect on jobs will be far greater. The Fox population will still need to be controlled, and as for animal cruelty, this is a bigger problem for factory farming than for hunting. This is nothing more than class warfare and an attack on rural communities.
+OnImplement = "CreateGrudge(BanFoxHunting,Farmers,0.09,1.0f);CreateGrudge(BanFoxHunting,Conservatives,-0.07,1.0f);CreateGrudge(BanFoxHunting,Liberal,-0.10,1.0f);CreateGrudge(BanFoxHunting,Socialist,-0.03,1.0f);"
+

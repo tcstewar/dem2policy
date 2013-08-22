@@ -1,0 +1,1 @@
+TutorialWindow("This is where you select a new minister to take over a vacant job in the cabinet. Ideally you will appoint someone who has support among voters you want to appeal to, who has skill in that specific department, and who has a high level of experience.",30,400);

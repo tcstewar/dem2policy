@@ -1,0 +1,11 @@
+[config]
+Name = SweatshopScandal
+GUIName = Sweatshop Scandal
+Texture = "event_sweatshop.jpg"
+Description = We might have thought that sweatshops were things found in other, less prosperous countries, but a recent TV documentary has bought the issue of local homegrown sweatshops into the public eye. It seems a number of companies making clothing are literally paying slave wages to a large number of employees, especially those from ethnic minorities. This is not going to go down well with Trade Unionists or the Liberals.
+OnView = PlaySound(upset.ogg)
+OnImplement = CreateGrudge(SweatshopScandal,Liberal,-0.400,0.800);CreateGrudge(SweatshopScandal,Poor,-0.800,0.550);CreateGrudge(SweatshopScandal,SweatshopScandal,-0.900,0.960);CreateGrudge(SweatshopScandal,TradeUnionist,-0.660,0.900);
+[influences]
+0 = "_random_,0.700,1.000"
+1 = "AverageIncome,0-(0.38*x)"
+2 = "Equality,0.3-(0.6*x)"

@@ -1,0 +1,12 @@
+[config]
+Name = CapitalistAssasination
+GUIName = Assassination!
+UsedBy = TheBattenburgGroup
+MinStrength = 40
+Cost = 40
+MinSize = 8
+SuccessChance = 0.25
+SuccessText = 
+OnSuccess = PlaySound(ak47.ogg);GameOver("Capitalist Assassination","You have been the victim of a carefully planned assassination. A highly skilled gunman put a bullet right through your skull using a hi-tech sniper rifle when you appeared at an event to open a new school. All the clues lead to the assassin being hired by a secretive group known as 'The Battenburg group', thought to be controlled by a number of hyper-wealthy capitalists. It seems you let your government get on the wrong side of some very powerful and rich men, and you paid the ultimate price.");
+FailureText = ""
+OnFailure = CreateNamedGrudge(Assassination attempt,Patriot,-0.25,0.8);CreateNamedGrudge(Assassination attempt,_All_,-0.12,0.9);TriggerEvent(FailedCapitalistAssassination);

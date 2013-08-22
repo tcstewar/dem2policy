@@ -1,0 +1,30 @@
+<WRAP = 760><FONTNAME = arial16.dds><FONTSIZE = 16><COLOR = 255,255,255,255>Prisoners per capita by country:
+<BR>
+	    	United States:   	715 per 100,000 people    	
+	   	Russia: 		584 per 100,000 people   
+	   	England and Wales	149 per 100,000 people
+		Spain:   		144 per 100,000 people 
+		China:   		119 per 100,000 people
+		Germany:   		96 per 100,000 people  
+		France:		85 per 100,000 people
+		Italy		67 per 100,000 people
+<BR>
+Many countries have an actual prison population that exceeds their official capacity:
+<BR>
+		United States		107.6% of capacity
+		Russia:		86.2% of capacity
+		England and Wales:	112.9% of capacity
+		Spain:		133.7% of capacity
+		China:		Estimated 87%	
+		Germany:		95.8% of capacity
+		France:		109.9% of capacity
+		Italy:		138.9% of capacity
+<BR>
+Does prison work? In 2003, the figures for the UK showed that 61% of offenders were reconvicted within 2 years. Statistics show (in the UK) that re offending rates can be cut to 30% where good drug treatment and post-release monitoring systems are in place. Poor literacy amongst prisoners is also an issue. In the UK, more than 50% of all prisoners are at or below the level expected of an 11-year-old in reading.  80% are below this level in writing (Source: Prison Statistics England and Wales 2002, Home Office, 2003)
+		
+		
+
+
+
+
+

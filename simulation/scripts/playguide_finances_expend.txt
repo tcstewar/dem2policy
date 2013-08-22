@@ -1,0 +1,1 @@
+PlayGuideWindow("This tab shows where all your finances are going. On both this and the previous graph, you can click an item on the graph to jump to it's details when the game is running. Click the history tab",20,350,FALSE);SetAllowedButton(HistoryTab);

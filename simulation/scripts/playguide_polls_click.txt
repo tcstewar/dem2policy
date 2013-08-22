@@ -1,0 +1,1 @@
+PlayGuideWindow("Now lets click the polls button (with the mini bar graph on it) and take a look at our popularity.",312,20,FALSE);ClosePolicyPicker();SetAllowedButton(PollsButton);

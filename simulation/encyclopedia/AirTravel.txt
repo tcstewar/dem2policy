@@ -1,0 +1,14 @@
+<WRAP = 760><FONTNAME = arial16.dds><FONTSIZE = 16><COLOR = 255,255,255,255>The largest passenger airplane in the world is the airbus A380.At the time of writing, commercial flights are scheduled to start at the end of 2007. The plane is capable of carrying 853 people in economy class configuration.<BR>
+US airline revenues in 2006 were $146 Billion, representing 760 million passengers.<BR>
+Air Travel Revenue breakdown:<BR>
+	1.  	Air France - KLM  	 	$31,824
+	2. 	Deutsche Lufthansa		$29,922
+	3. 	AMR Corporation 		$22,550
+	4. 	UAL Corporation 		$19,348
+	5. 	Delta Air Lines 		$18,041
+	6. 	British Airways plc 		$17,622
+	7. 	Continental Airlines 		$13,563
+	8. 	Northwest Airlines 	 	$12,441
+	9. 	US Airways Group 		$11,641
+	10. 	Southwest Airlines Co 		$9,399
+

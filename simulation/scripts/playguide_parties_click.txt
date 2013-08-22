@@ -1,0 +1,1 @@
+PlayGuideWindow("Now lets check the status of the political parties. Click the next button, with the party rosette.",312,20,FALSE);SetAllowedButton(PartiesButton);CloseCabinet();

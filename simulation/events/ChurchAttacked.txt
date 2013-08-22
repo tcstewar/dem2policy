@@ -1,0 +1,11 @@
+[config]
+Name = ChurchAttacked
+GUIName = Church Attacked!
+Texture = "event_burning.jpg"
+Description = A prominent church in your capital city has been razed to the ground by a firebomb, after what appeared to be a sectarian riot between rival religious groups. The press are doing little to minimize the disastrous effect this will have for race relations in our country."
+OnView = PlaySound(explosion.ogg)
+OnImplement = CreateGrudge(ChurchAttacked,_All_,-0.10,0.700);CreateGrudge(ChurchAttacked,Religious,-0.270,0.80);CreateGrudge(ChurchAttacked,ChurchAttacked,-0.950,0.850);CreateGrudge(ChurchAttacked,RacialTension,0.250,0.860);CreateGrudge(ChurchAttacked,Religious_freq,-0.120,0.85);
+[influences]
+0 = "_random_,0.200,0.400"
+1 = "_winning_,0+(0.3*x)"
+2 = "CrimeRate,0+(0.4*x)"
