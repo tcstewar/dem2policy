@@ -39,6 +39,49 @@ class Variable:
         self.effects=data[12:]
 
 
+class VoterType:
+    def __init__(self,data):
+        assert data[0][0]=='#'
+        self.objectname=data[1]
+        self.guiname=data[2]
+        self.plural=data[3]
+        self.image=data[4]
+        self.overridden_joins=data[5]=='1'
+        self.default = float(data[6])
+        self.percentage = float(data[7])
+        self.opposite = data[8]
+        self.desc = data[9]
+        assert data[10][0]=='#'
+        self.influences = data[11:]
+    
+    def make_line(self):
+        line=['#',
+              self.objectname,
+              self.guiname,
+              self.plural,
+              self.image,
+              ['0', '1'][self.overridden_joins],
+              '%g'%self.default,
+              '%g'%self.percentage,
+              self.opposite,
+              self.desc,
+              '#',
+              ]
+        line.extend(self.influences)
+        line=[quote(item) for item in line]
+        return ','.join(line)
+        
+    def save(self, filename, index):
+        data=list(open(filename).readlines())
+        data=[remove_non_ascii(row.strip()) for row in data]
+        if index==-1:
+            data.append(self.make_line())
+            index=len(data)-1
+        else:    
+            data[index]=self.make_line()
+        open(filename,'w').write('\n'.join(data))
+        return index
+
         
 class Policy:
     def __init__(self,data):
@@ -136,7 +179,7 @@ class Editor(swi.SimpleWebInterface):
         for i,row in enumerate(data):
             bg=['#fff','#eee'][i%2]
             if row[0]=='#':
-                list[T.tr(style='background:'+bg)[T.td[[T.span[row[2]]]]]]
+                list[T.tr(style='background:'+bg)[T.td[[T.a(href='/votertype/%s/%d'%(path,i))[row[2]]]]]]
         voters=list
 
         data=parse_file(path+'/simulation/simulation.csv')
@@ -164,11 +207,14 @@ class Editor(swi.SimpleWebInterface):
                 T.td[T.table(style='width:180px')[T.thead[T.tr[T.th['Events']]],events]],
             ],
             T.tr[T.td[T.center[T.a(href="/raw/%s/policies"%path)['raw data']]],
-                 T.td,
+                 T.td[T.center[T.a(href="/raw/%s/votertypes"%path)['raw data']]],
                  T.td[T.center[T.a(href="/force/%s"%path)['force graph']]],
                  
                  ],
-            T.tr[T.td[T.center[T.a(href="/toggle/%s/policies"%path)['toggle']]]],
+            T.tr[T.td[T.center[T.a(href="/toggle/%s/policies"%path)['toggle']]],
+                 T.td[T.center[T.a(href="/toggle/%s/votertypes"%path)['toggle']]],
+            
+                ],
             ],
             ]
             
@@ -186,9 +232,10 @@ class Editor(swi.SimpleWebInterface):
         return table
         
     def swi_raw(self, path, type, text=None):
-        fn=dict(policies='simulation/Policies.csv')[type]
+        fn=dict(policies='simulation/Policies.csv', votertypes='simulation/VoterTypes.csv')[type]
         if text is None:
             text=open(path+'/'+fn).read()
+            text=text.replace('\x92', "'")
         else:
             file=open(path+'/'+fn,'w')
             file.write(text)
@@ -213,7 +260,7 @@ class Editor(swi.SimpleWebInterface):
         return T.body[T.h1['policies'],list]    
 
     def swi_toggle(self, path, type, **flags):
-        fn=dict(policies='simulation/Policies.csv')[type]
+        fn=dict(policies='simulation/Policies.csv', votertypes='simulation/VoterTypes.csv')[type]
         data=open(path+'/'+fn).readlines()
         
         form=T.form(action="/toggle", method="post")[
@@ -396,6 +443,115 @@ class Editor(swi.SimpleWebInterface):
             
             
             ]
+
+
+
+
+    def swi_votertype(self, path, index, edit=False, guiname=None, description=None, 
+                effects=None, raw=None, duplicate=False):
+        index=int(index)
+        
+        if raw!=None:
+            data=csv.reader([raw]).next()
+        else:
+            data=parse_file(path+'/simulation/VoterTypes.csv')[index]
+ 
+        
+
+ 
+        vt=VoterType(data)
+        if raw!=None:
+            vt.save(path+'/simulation/VoterTypes.csv',index)
+
+        if edit:
+            if guiname is not None: vt.guiname=guiname
+            if description is not None: vt.desc=description
+            vt.influences=[item.strip() for item in effects.split('\n')]
+            
+            vt.save(path+'/simulation/VoterTypes.csv',index)
+            
+        else:
+            test=open(path+'/simulation/VoterTypes.csv').readlines()[index].strip()
+            if vt.make_line().strip()!=test:
+                print 'error regenerating VoterType:'
+                print 'file:',index
+                print `test`
+                print 'generated:'
+                print `vt.make_line().strip()`
+        
+        if duplicate:
+            vt.objectname+='Copy'
+            vt.guiname+=' (copy)'
+            index=vt.save(path+'/simulation/VoterTypes.csv', -1)
+            
+        
+        
+        select=[{},dict(selected='selected')]
+        
+        return T.body[
+            T.h1[vt.objectname],
+            T.a(href="/index/"+path)['Back to menu'],
+            T.br,
+            T.form(action="/votertype/%s/%d"%(path,index), method='post') [
+                T.input(type='hidden', name='duplicate', value=True),
+                T.input(type='submit', value='Duplicate'),
+              ],
+            T.form(action='/votertype/%s/%d'%(path,index), method='post')[
+                T.input(type='hidden', name='edit', value=True),
+                'Name:',T.input(type='text',name='guiname', value=vt.guiname, size=40),
+                T.br,
+                T.textarea(rows=6, cols=60, name='description')[vt.desc],
+                T.br,
+                'Influences:',
+                T.br,                
+                T.textarea(rows=6, cols=60, name='effects')['\n'.join(vt.influences)],
+                T.br,
+                T.input(type='submit', value='Save Changes'),
+                ],
+            
+            T.br,
+            T.div(style='background:#dddddd')[
+                T.h3['Raw data:'],
+                
+                T.form(action='/votertype/%s/%d'%(path,index), method='post')[
+                    T.textarea(rows=10, cols=60, name='raw')[vt.make_line()],
+                    T.br,
+                    T.input(type='submit', value='Save Raw Data'),
+                    ],
+                ],    
+            
+            
+            
+            ]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
             
     def swi_force(self, path):
         data=parse_file(path+'/simulation/simulation.csv')
