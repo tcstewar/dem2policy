@@ -448,7 +448,7 @@ class Editor(swi.SimpleWebInterface):
 
 
     def swi_votertype(self, path, index, edit=False, guiname=None, description=None, 
-                effects=None, raw=None, duplicate=False):
+                percentage=None, effects=None, raw=None, duplicate=False):
         index=int(index)
         
         if raw!=None:
@@ -466,6 +466,7 @@ class Editor(swi.SimpleWebInterface):
         if edit:
             if guiname is not None: vt.guiname=guiname
             if description is not None: vt.desc=description
+            vt.percentage = min(1, max(float(percentage), 0))
             vt.influences=[item.strip() for item in effects.split('\n')]
             
             vt.save(path+'/simulation/VoterTypes.csv',index)
@@ -501,6 +502,8 @@ class Editor(swi.SimpleWebInterface):
                 'Name:',T.input(type='text',name='guiname', value=vt.guiname, size=40),
                 T.br,
                 T.textarea(rows=6, cols=60, name='description')[vt.desc],
+                T.br,
+                'Proportion (0.0 to 1.0):',T.input(type='text',name='percentage', value=vt.percentage, size=10),
                 T.br,
                 'Influences:',
                 T.br,                
