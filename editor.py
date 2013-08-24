@@ -29,14 +29,6 @@ def quote(text):
     else:
         return text
 
-class Variable:
-    def __init__(self,data):
-        assert data[0][0]=='#'
-        self.name=data[1]
-        self.guiname=data[2]
-        self.description=data[3]
-        
-        self.effects=data[12:]
 
 
 class VoterType:
@@ -75,6 +67,8 @@ class VoterType:
         data=list(open(filename).readlines())
         data=[remove_non_ascii(row.strip()) for row in data]
         if index==-1:
+            if len([d for d in data if len(d[0])>0 and d[0][0]=='#'])>=24:
+                raise Exception('Maximum number of voter types (24) reached')
             data.append(self.make_line())
             index=len(data)-1
         else:    
@@ -94,11 +88,11 @@ class Policy:
         self.actionpoints=[int(x) for x in data[6:10]]
         self.department=data[10]
         self.mincost=int(data[11])
-        self.maxcost=float(data[12])
+        self.maxcost=int(data[12])
         self.cost_multiplier=data[13]
         self.implementation=int(data[14])
-        self.minincome=data[15]
-        self.maxincome=data[16]
+        self.minincome=float(data[15])
+        self.maxincome=float(data[16])
         self.incomemultiplier=data[17]
         assert data[18][0]=='#'
         self.effects=data[19:]
@@ -119,8 +113,8 @@ class Policy:
               "%d"%self.maxcost,
               self.cost_multiplier,
               "%d"%self.implementation,
-              self.minincome,
-              self.maxincome,
+              "%g"%self.minincome,
+              "%g"%self.maxincome,
               self.incomemultiplier,
               '#Effects']
         line.extend(self.effects)
@@ -137,6 +131,62 @@ class Policy:
             data[index]=self.make_line()
         open(filename,'w').write('\n'.join(data))
         return index
+
+
+
+
+class Variable:
+    def __init__(self,data):
+        assert data[0][0]=='#'
+        self.name=data[1]
+        self.guiname=data[2]
+        self.description=data[3]
+        self.zone = data[4]
+
+        self.default = float(data[5])
+        self.min = float(data[6])
+        self.max = float(data[7])
+
+        self.ishighgood = data[8]=='1'
+        self.icon = data[9]
+        assert data[10][0]=='#'
+        assert data[11][0]=='#'
+        
+        self.effects=data[12:]
+    
+    def make_line(self):
+        line=['#',
+              self.name,
+              self.guiname,
+              self.description,
+              self.zone,
+              "%g"%self.default,
+              "%g"%self.min,
+              "%g"%self.max,
+
+              ['0', '1'][self.ishighgood],
+              self.icon,
+              '#',
+              '#',
+              ]
+        line.extend(self.effects)
+        line=[quote(item) for item in line]
+        return ','.join(line)
+        
+    def save(self, filename, index):
+        data=list(open(filename).readlines())
+        data=[remove_non_ascii(row.strip()) for row in data]
+        if index==-1:
+            data.append(self.make_line())
+            index=len(data)-1
+        else:    
+            data[index]=self.make_line()
+        open(filename,'w').write('\n'.join(data))
+        return index
+
+
+
+
 
 class Editor(swi.SimpleWebInterface):
     def swi_test(self, name):
@@ -187,7 +237,7 @@ class Editor(swi.SimpleWebInterface):
         for i,row in enumerate(data):
             bg=['#fff','#eee'][i%2]
             if row[0]=='#':
-                list[T.tr(style='background:'+bg)[T.td[[T.span[row[2]]]]]]
+                list[T.tr(style='background:'+bg)[T.td[[T.a(href='/variable/%s/%d'%(path,i))[row[2]]]]]]
         variables=list
         
         events=T.tbody(style='display:block; height:500px; overflow:auto; width:100%')
@@ -208,14 +258,15 @@ class Editor(swi.SimpleWebInterface):
             ],
             T.tr[T.td[T.center[T.a(href="/raw/%s/policies"%path)['raw data']]],
                  T.td[T.center[T.a(href="/raw/%s/votertypes"%path)['raw data']]],
-                 T.td[T.center[T.a(href="/force/%s"%path)['force graph']]],
+                 T.td[T.center[T.a(href="/raw/%s/variables"%path)['raw data']]], 
                  
                  ],
             T.tr[T.td[T.center[T.a(href="/toggle/%s/policies"%path)['toggle']]],
                  T.td[T.center[T.a(href="/toggle/%s/votertypes"%path)['toggle']]],
-            
+                 T.td[T.center[T.a(href="/toggle/%s/variables"%path)['toggle']]],
                 ],
             ],
+            T.td[T.center[T.a(href="/force/%s"%path)['force graph']]],
             ]
             
             
@@ -232,7 +283,9 @@ class Editor(swi.SimpleWebInterface):
         return table
         
     def swi_raw(self, path, type, text=None):
-        fn=dict(policies='simulation/Policies.csv', votertypes='simulation/VoterTypes.csv')[type]
+        fn=dict(policies='simulation/Policies.csv',
+                votertypes='simulation/VoterTypes.csv',
+                variables='simulation/simulation.csv')[type]
         if text is None:
             text=open(path+'/'+fn).read()
             text=text.replace('\x92', "'")
@@ -260,7 +313,9 @@ class Editor(swi.SimpleWebInterface):
         return T.body[T.h1['policies'],list]    
 
     def swi_toggle(self, path, type, **flags):
-        fn=dict(policies='simulation/Policies.csv', votertypes='simulation/VoterTypes.csv')[type]
+        fn=dict(policies='simulation/Policies.csv',
+                votertypes='simulation/VoterTypes.csv',
+                variables='simulation/simulation.csv')[type]
         data=open(path+'/'+fn).readlines()
         
         form=T.form(action="/toggle", method="post")[
@@ -331,7 +386,8 @@ class Editor(swi.SimpleWebInterface):
     def swi_policy(self, path, index, edit=False, guiname=None, description=None, 
                 ap_intro=None, ap_cancel=None, ap_raise=None, ap_lower=None,
                 effects=None, raw=None, duplicate=False, minincome=None,
-                maxincome=None, mincost=None, maxcost=None, department=None):
+                maxincome=None, mincost=None, maxcost=None, department=None,
+                implementation=None):
         index=int(index)
         
         if raw!=None:
@@ -351,11 +407,12 @@ class Editor(swi.SimpleWebInterface):
             if description is not None: p.description=description
             p.actionpoints=[int(ap_intro), int(ap_cancel), int(ap_raise), int(ap_lower)]
             p.effects=[item.strip() for item in effects.split('\n')]
-            p.mincost=float(mincost)
-            p.maxcost=float(maxcost)
-            p.minincome=minincome
-            p.maxincome=maxincome
+            p.mincost=int(mincost)
+            p.maxcost=int(maxcost)
+            p.minincome=float(minincome)
+            p.maxincome=float(maxincome)
             p.department=department
+            p.implementation=int(implementation)
             
             p.save(path+'/simulation/Policies.csv',index)
             
@@ -417,10 +474,14 @@ class Editor(swi.SimpleWebInterface):
                       ' (in $M per turn)',
                 T.br,
                 'Income: ',
-                      T.input(type='text',name='minincome',value=p.minincome, size=8),
+                      T.input(type='text',name='minincome',value="%g"%p.minincome, size=8),
                       ' to ',
-                      T.input(type='text',name='maxincome',value=p.maxincome, size=8),
+                      T.input(type='text',name='maxincome',value="%g"%p.maxincome, size=8),
                       ' (in $M per turn)',
+                T.br,
+                'Implementation Time:',
+                      T.input(type='text',name='implementation',value=p.implementation, size=8),
+                      ' (in months -- 4 months per turn)',
                 T.br,
                 'Effects:',
                 T.br,                
@@ -443,6 +504,132 @@ class Editor(swi.SimpleWebInterface):
             
             
             ]
+
+
+
+    def swi_variable(self, path, index, edit=False, guiname=None, description=None, 
+                zone=None, default=None, min=None, max=None, ishighgood=None, icon=None,
+                effects=None, raw=None, duplicate=False):
+        index=int(index)
+        filename = path+'/simulation/simulation.csv'
+
+        alldata = parse_file(filename)
+        icons = []
+        for data in alldata:
+            if len(data[0])>0 and data[0][0]=='#':
+                icon2 = Variable(data).icon
+                if icon2 not in icons: icons.append(icon2)
+        icons.sort()        
+        
+        if raw!=None:
+            data=csv.reader([raw]).next()
+        else:
+            data=alldata[index]
+ 
+        
+
+ 
+        v=Variable(data)
+        if raw!=None:
+            v.save(filename,index)
+
+        if edit:
+            if guiname is not None: v.guiname=guiname
+            if description is not None: v.description=description
+            v.effects=[item.strip() for item in effects.split('\n')]
+            v.zone = zone
+            v.default = float(default)
+            v.min = float(min)
+            v.max = float(max)
+            v.ishighgood = ishighgood=="1"
+            v.icon = icon
+            
+            v.save(filename,index)
+            
+        else:
+            test=open(filename).readlines()[index].strip()
+            if v.make_line()!=test:
+                print 'file:',index,test
+                print 'generated:',p.make_line()
+        
+        if duplicate:
+            v.guiname+=' (copy)'
+            v.name+='Copy'
+            index=v.save(filename, -1)
+            
+        
+        
+        select=[{},dict(selected='selected')]
+        
+        return T.body[
+            T.h1[v.name],
+            T.a(href="/index/"+path)['Back to menu'],
+            T.br,
+            T.form(action="/variable/%s/%d"%(path,index), method='post') [
+                T.input(type='hidden', name='duplicate', value=True),
+                T.input(type='submit', value='Duplicate'),
+              ],
+            T.form(action='/variable/%s/%d'%(path,index), method='post')[
+                T.input(type='hidden', name='edit', value=True),
+                'Name:',T.input(type='text',name='guiname', value=v.guiname, size=40),
+                T.br,
+                T.textarea(rows=6, cols=60, name='description')[v.description],
+                T.br,
+                      
+                'Department: ',
+                T.select(name='zone')[
+                    T.option(value="FOREIGNPOLICY")(**select[v.zone=='FOREIGNPOLICY'])['Foreign Policy'],
+                    T.option(value="WELFARE")(**select[v.zone=='WELFARE'])['Welfare'],
+                    T.option(value="ECONOMY")(**select[v.zone=='ECONOMY'])['Economy'],
+                    T.option(value="TAX")(**select[v.zone=='TAX'])['Tax'],
+                    T.option(value="PUBLICSERVICES")(**select[v.zone=='PUBLICSERVICES'])['Public Services'],
+                    T.option(value="LAWANDORDER")(**select[v.zone=='LAWANDORDER'])['Law and Order'],
+                    T.option(value="TRANSPORT")(**select[v.zone=='TRANSPORT'])['Transport'],
+                    ],    
+                T.br,
+                'Default value: ',
+                      T.input(type='text',name='default',value="%g"%v.default, size=8),
+                T.br,
+                'Minimum: ',
+                      T.input(type='text',name='min',value="%g"%v.min, size=8),
+                      '  Maximum: ',
+                      T.input(type='text',name='max',value="%g"%v.max, size=8),
+  
+                      T.select(name='ishighgood')[
+                        T.option(value="1")(**select[v.ishighgood])['Larger is better'],
+                        T.option(value="0")(**select[not v.ishighgood])['Smaller is better'],
+                        ],    
+
+                T.br,
+                'Icon: ',
+                T.select(name='icon')[[
+                    T.option(value=icon)(**select[v.icon==icon])[icon] for icon in icons]],
+
+
+                T.br,
+                'Effects:',
+                T.br,                
+                T.textarea(rows=6, cols=60, name='effects')['\n'.join(v.effects)],
+                T.br,
+                T.input(type='submit', value='Save Changes'),
+                ],
+            
+            T.br,
+            T.div(style='background:#dddddd')[
+                T.h3['Raw data:'],
+                
+                T.form(action='/variable/%s/%d'%(path,index), method='post')[
+                    T.textarea(rows=10, cols=60, name='raw')[v.make_line()],
+                    T.br,
+                    T.input(type='submit', value='Save Raw Data'),
+                    ],
+                ],    
+            
+            
+            
+            ]
+
+
 
 
 
