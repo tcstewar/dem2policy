@@ -4,6 +4,7 @@ import csv
 import os
 import random
 import sys
+import json        
 
 
 def remove_non_ascii(text):
@@ -293,8 +294,11 @@ class Editor(swi.SimpleWebInterface):
                  T.td[T.center[T.a(href="/toggle/%s/votertypes"%path)['toggle']]],
                  T.td[T.center[T.a(href="/toggle/%s/variables"%path)['toggle']]],
                 ],
+            T.tr[T.td[T.center[T.a(href="/forcepolicy/%s"%path)['graph']]],
+                 T.td,
+                 T.td[T.center[T.a(href="/forcevariables/%s"%path)['graph']]],
+                ],
             ],
-            T.a(href="/force/%s"%path)['force graph'],
             T.br,
             T.a(href="/sanity/%s"%path)['Sanity Check'],
             ]
@@ -773,7 +777,7 @@ class Editor(swi.SimpleWebInterface):
 
 
             
-    def swi_force(self, path):
+    def swi_forcevariables(self, path):
         data=parse_file(path+'/simulation/simulation.csv')
         variables=[]
         variable_index={}
@@ -926,12 +930,47 @@ class Editor(swi.SimpleWebInterface):
                 data.append(d)
         
             
-        import json        
         return json.dumps(dict(nodes=data))
         
     
         #return open('may24forcedata.json').read()
 
+
+
+    def swi_forcepolicy(self, path):
+        html = open('forcepolicy.html').read()
+        html = html.replace('***DATAFILE***', '/forcepolicy_data/%s'%path)
+        html = html.replace('***PATH***', path)
+
+        return html
+
+    def swi_forcepolicy_data(self, path):
+        policy_data = parse_file(path+'/simulation/Policies.csv')
+        policies = []
+        for i,data in enumerate(policy_data):
+            if len(data[0])>0 and data[0][0]=='#':
+                p = Policy(data)
+                p.index = i
+                policies.append(p)
+
+        nodes=[{"Department": "ECONOMY", "PolicyName": "ECONOMY", "maxcost": "", "mincost": ""},
+               {"Department": "TAX", "PolicyName": "TAX", "maxcost": "", "mincost": ""},
+               {"Department": "FOREIGNPOLICY", "PolicyName": "FOREIGNPOLICY", "maxcost": "", "mincost": ""},
+               {"Department": "PUBLICSERVICES", "PolicyName": "PUBLICSERVICES", "maxcost": "", "mincost": ""},
+               {"Department": "TRANSPORT", "PolicyName": "TRANSPORT", "maxcost": "", "mincost": ""},
+               {"Department": "WELFARE", "PolicyName": "WELFARE", "maxcost": "", "mincost": ""},
+               {"Department": "LAWANDORDER", "PolicyName": "LAWANDORDER", "maxcost": "", "mincost": ""}]
+        
+        for p in policies:
+            print p.guiname, p.index
+            nodes.append(dict(Department=str(p.department),
+                              PolicyName=str(p.guiname),
+                              maxcost=p.maxcost,
+                              mincost=p.mincost,
+                              policy_index=p.index))
+
+        return json.dumps(dict(nodes=nodes))
+                
         
 
 swi.start(Editor, 8080)

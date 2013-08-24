@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+
+.node {
+  stroke: #fff;
+  stroke-width: 1.5px;
+}
+
+.node text {
+  pointer-events: none;
+  font: 10px georgia;
+  font-style: normal;
+  font-weight:10;
+  opacity: 0.80;
+  stroke: black;
+}
+
+text {
+  pointer-events: none;
+  font: 15px georgia;
+  font-style: normal;
+  font-weight:10;
+  opacity: 0.80;
+  stroke: black;
+}
+
+.link {
+  stroke: #999;
+  stroke-opacity: .6;
+}
+
+</style>
+
+<body>
+
+<script src="http://d3js.org/d3.v3.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>
+
+var width = 950,
+    height = 500;
+
+var force = d3.layout.force()
+    .charge(-100)
+    .size([width, height]);
+
+
+var svg = d3.select("body").append("svg")
+    .attr("width", width+100)
+    .attr("height", height+100); //added in because the force layout tends to go right to the edge of the bounding box
+
+d3.json("***DATAFILE***", function(my_data) {
+  
+  
+  // using jQuery.map() to reformat the data (as seen in other examples)
+  // from reading the documentation about nodes and links, it seems that i have to 
+  // return numbers for name, source, target and value/weight
+  
+  var my_nodes = $.map(my_data.nodes, function(d,i) {return {"name":i, "PolicyName": d.PolicyName, "Department": d.Department, "mincost": d.mincost, "maxcost":d.maxcost ,"policy_index":d.policy_index};});
+  /* I create a new array with node names, and include the rest of the node data 
+	so i can call on it & use it when I want
+	*/
+	var my_links = $.map(my_data.nodes, function(d,i){
+	
+	// I create an ordinal scale to convert the department name to a number to use for the target
+	// value. These numbers correspond to the index value of the department nodes (the order
+	//they are listed in the json file
+	deptscale = d3.scale.ordinal()
+	deptscale.domain(["ECONOMY", "TAX", "FOREIGNPOLICY","PUBLICSERVICES", "TRANSPORT", 
+						"WELFARE", "LAWANDORDER"])
+	deptscale.range([0,1,2,3,4,5,6])
+	
+	var returnIndex = deptscale(d.Department)
+
+
+return {"source":i , "target": returnIndex, "value":1, "origin": d};
+});
+   /* to create the links, i specify a value for source, target, value and origin. source is easy 
+   enough, just the index/name of the node. target is the index of the department the policy belongs to. 
+   the effect of this monkeying around will be to create a central department node
+   with its policies linked to it. */
+
+//adding node and link data to the force layout
+  force
+      .nodes(my_nodes)
+      .links(my_links)
+    //modifying link distance to encode policy cost (higher costing policies have longer links
+    .linkDistance(function(d) {
+    	linkscale = d3.scale.linear()
+    		linkscale.domain([0, 500, 15600]) 
+    		linkscale.range([5, 70, 300])
+    		distance = linkscale(d.source.maxcost)
+    	 return distance})
+      .start();
+    		// I added in the three points here to stagger the link distances so they would 
+    		// be better separated
+    		//I had to hard-code the domain here because I could not make d3.max work at all
+    		// in this example. no idea why...
+
+
+ //creating an svg representation for the links (lines!)
+  var link = svg.selectAll(".link")
+      .data(my_links)
+      .enter().append("line")
+      .attr("class", "link")
+      
+
+//creating a scale to set radius for the circles so that circle area corresponds to policy 
+//cost
+
+scale = d3.scale.sqrt()
+maxnum = d3.max(my_nodes, function(d) {return parseFloat(d.maxcost);})
+console.log("maxnum is")
+console.log(maxnum)
+scale.domain([0, 15600])
+scale.range([5,40])
+
+ //making colour scale
+      
+      colourscale = d3.scale.category10()
+      	colourscale.domain(["ECONOMY", "TAX", "FOREIGNPOLICY","PUBLICSERVICES", "TRANSPORT", 
+						"WELFARE", "LAWANDORDER"])
+
+
+
+//creating a svg node class that will eventually include circles and text labels
+  
+ var node = svg.selectAll(".node")
+      .data(my_nodes)
+    .enter().append("g")
+      .attr("class", "node")
+      .attr("policy_index", function (d) {return d.policy_index;})
+      .attr("data-legend", function(d) {return d.Department}) // this is for the legend
+     
+/* we're careful to create a g/node class here and not immediately add the circle.
+if we added the circle immediately and called this variable node, we wouldn't be able to
+add text and have it show up on the display. this is because you can't add text to a 
+circle. general rule - create a container class and add all things you want to display to
+that instead. g/node is our container class. it has all our data on it as well. 
+*/
+                          
+    node.append("circle")
+      .attr("r", function (d) {return scale(d.maxcost);})
+     
+      .attr("class", "node")
+      .style("fill", function (d) {
+      return colourscale(d.Department)}) 
+       
+       // turning circles gold on mouseover
+        .on("mouseover", function(){d3.select(this).style("fill", "gold")})
+        .on("mouseout", function(){d3.select(this).style("fill", function(d) 
+        	{return colourscale(d.Department)})
+        						  })
+
+//giving circles titles, so they'll show up as tooltips on mouseover (fyi: load time is slow)
+
+node.selectAll("circle")
+	.append("svg:title")
+	.text(function(d) { return d.PolicyName +" (" + String(d.maxcost) + ")" })
+
+
+//creating and hiding text
+ node.append("text")
+      .attr("dy", 10)
+      .attr("z-index", 100)
+      .text(function(d) { 
+      var PolicyName = d.PolicyName
+      						if (PolicyName == "ECONOMY" || PolicyName == "WELFARE" || PolicyName == "FOREIGNPOLICY" ||
+      							PolicyName == "TRANSPORT" || PolicyName == "PUBLICSERVICES" || PolicyName == "TAX" || PolicyName == "LAWANDORDER")
+      							{return d.PolicyName} 
+     						 else
+      							{return returnText = PolicyName +" (" + String(d.maxcost) + ")" }
+      return returnText})
+      //this text function returns just the department name if it's a department node
+      // and the policy name and maxcost if it is a policy
+      .style("visibility",
+      // here we write a function to make the department nodes visible from the get-go
+      						function(d) { var PolicyName = d.PolicyName
+      						if (PolicyName == "ECONOMY" || PolicyName == "WELFARE" || PolicyName == "FOREIGNPOLICY" ||
+      							PolicyName == "TRANSPORT" || PolicyName == "PUBLICSERVICES" || PolicyName == "TAX" || PolicyName == "LAWANDORDER")
+      							{return "visible"} 
+      						else
+      						{return "hidden"}})
+      						// but makes all the policy names invisible
+
+// toggling visibility with click (THANKS NATHAN!)
+node.on("click", function() {  
+ var visibility = d3.select(this).select("text").style("visibility") 
+ if	(visibility == "visible"){
+ 		d3.select(this).select("text").style("visibility", "hidden")} 						
+else
+{d3.select(this).select("text").style("visibility", "visible")} 			
+   								
+		}) 			
+
+node.on("dblclick", function() {  
+   window.location = "/policy/***PATH***/"+this.attributes.getNamedItem("policy_index").value;
+   return;
+   alert(this.attributes.getNamedItem("policy_index").value);
+})
+
+ //this business below makes the force layout work.      
+node.call(force.drag);  
+  force.on("tick", function() {
+    link.attr("x1", function(d) { return d.source.x; })
+        .attr("y1", function(d) { return d.source.y; })
+        .attr("x2", function(d) { return d.target.x; })
+        .attr("y2", function(d) { return d.target.y; });
+        
+    node.attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; });
+  });
+ 
+//creating a legend  
+
+// using a legend plug-in from Ziggy, with some small modifications
+// d3.legend.js 
+// (C) 2012 ziggy.jonsson.nyc@gmail.com
+// MIT licence
+
+(function() {
+d3.legend = function(g) {
+  g.each(function() {
+    var g= d3.select(this),
+        items = {},
+        svg = d3.select(g.property("nearestViewportElement")),
+        legendPadding = g.attr("data-style-padding") || 5,
+        lb = g.selectAll(".legend-box").data([true]),
+        li = g.selectAll(".legend-items").data([true])
+
+    lb.enter().append("rect").classed("legend-box",true)
+    li.enter().append("g").classed("legend-items",true)
+
+    svg.selectAll("[data-legend]").each(function() {
+        var self = d3.select(this)
+        var circle = self.selectAll("circle")
+        items[self.attr("data-legend")] = {
+          pos : self.attr("data-legend-pos") || this.getBBox().y,
+          color : circle.attr("data-legend-color") != undefined ? circle.attr("data-legend-color") : circle.style("fill") != 'none' ? circle.style("fill") : circle.style("stroke") 
+        }
+      })
+
+    items = d3.entries(items).sort(function(a,b) { return a.value.pos-b.value.pos})
+
+    
+    ligroups = li.selectAll("g")
+        .data(items,function(d) { return d.key})
+        .call(function(d) { d.enter().append("g")})
+        .call(function(d) { d.exit().remove()})
+        .attr("node-vis", "hidden")
+        .on("click", function(d) {
+        	var self = d3.select(this);
+        	self.attr("node-vis", function(){
+        		if(self.attr("node-vis") == "hidden"){return "visible"}
+        		else{return "hidden"}})
+        	d3.selectAll("[data-legend=" + d.key + "]").selectAll("text").style("visibility",self.attr("node-vis"))});
+    ligroups.append("text")
+        .attr("y",function(d,i) { return i+"em";})
+        .attr("x","1em")
+        .text(function(d) { return d.key;})
+        .style("font-family", "georgia")
+    
+    ligroups.append("circle")
+        .attr("cy",function(d,i) { return i-0.25+"em"})
+        .attr("cx",0)
+        .attr("r","0.4em")
+        .style("fill",function(d) { console.log(d.value.color);return d.value.color})
+
+      					  	
+    
+    // Reposition and resize the box
+    var lbbox = li[0][0].getBBox()  
+    lb.attr("x",(lbbox.x-legendPadding))
+        .attr("y",(lbbox.y-legendPadding))
+        .attr("height",(lbbox.height+2*legendPadding))
+        .attr("width",(lbbox.width+2*legendPadding))
+        .attr("fill", "none")
+  })
+  return g
+}
+})()
+
+//actually creating the legend
+  legend = svg.append("g")
+    .attr("class","legend")
+    .attr("transform","translate(50,50)")
+    .style("font-size","15px")
+    .call(d3.legend)
+
+//adding a title
+svg.append("text")
+        .attr("x", (46))             
+        .attr("y", 20)
+        .attr("text-anchor", "left")  
+        .style("font-size", "16px")  
+        .text("D2 Policy Browser");
+  
+});
+
+//so there you have it!
+// ideas for improvements:
+/*
+1. get d3.max working. 
+2. policy names toggle visibility for an entire department when you click the circle on
+the legend
+3. integration into the policy editor. double click takes you to the policy editing page
+and changes in policy editor are represented in the visualization (so adding in update/exit
+functions)
+*/
+</script>
+</body>
