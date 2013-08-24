@@ -29,6 +29,37 @@ def quote(text):
     else:
         return text
 
+class Event:
+    def __init__(self, filename):
+        self.filename = filename
+        self.influences = []
+        self.prereqs = []
+
+        mode = None
+        for line in open(filename).readlines():
+            line = line.strip()
+            if len(line)==0: continue
+            if line[0]=='[':
+                if line == '[config]': mode='config'
+                elif line == '[influences]': mode='influences'
+                elif line == '[prereqs]': mode='prereqs'
+                else: raise Exception('Invalid line in event "%s": "%s"'%(filename, line))
+            else:
+                if mode == 'prereqs':
+                    self.prereqs.append(line)
+                else:    
+                    print line
+                    key, value = line.split('=',1)
+                    key = key.strip()
+                    value = value.strip()
+                    if mode == 'config':
+                        setattr(self, key, value)
+                    elif mode == 'influences':
+                        assert int(key)==len(self.influences)
+                        self.influences.append(value)
+                    else:
+                        raise Exception('Invalid line in event "%s": "%s"'%(filename, line))
+                
 
 
 class VoterType:
@@ -87,8 +118,8 @@ class Policy:
         self.flags=data[5]        
         self.actionpoints=[int(x) for x in data[6:10]]
         self.department=data[10]
-        self.mincost=int(data[11])
-        self.maxcost=int(data[12])
+        self.mincost=float(data[11])
+        self.maxcost=float(data[12])
         self.cost_multiplier=data[13]
         self.implementation=int(data[14])
         self.minincome=float(data[15])
@@ -109,8 +140,8 @@ class Policy:
               "%d"%self.actionpoints[2],
               "%d"%self.actionpoints[3],
               self.department,
-              "%d"%self.mincost,
-              "%d"%self.maxcost,
+              "%g"%self.mincost,
+              "%g"%self.maxcost,
               self.cost_multiplier,
               "%d"%self.implementation,
               "%g"%self.minincome,
@@ -189,9 +220,6 @@ class Variable:
 
 
 class Editor(swi.SimpleWebInterface):
-    def swi_test(self, name):
-        return T.body[T.h1['Hello'], T.p['My name is %s'%name], T.a(href='http://google.ca')['here is a link'], T.askjdhasdkja]
-    
 
 
     def swi(self):
@@ -266,7 +294,9 @@ class Editor(swi.SimpleWebInterface):
                  T.td[T.center[T.a(href="/toggle/%s/variables"%path)['toggle']]],
                 ],
             ],
-            T.td[T.center[T.a(href="/force/%s"%path)['force graph']]],
+            T.a(href="/force/%s"%path)['force graph'],
+            T.br,
+            T.a(href="/sanity/%s"%path)['Sanity Check'],
             ]
             
             
@@ -363,7 +393,7 @@ class Editor(swi.SimpleWebInterface):
         data=open(fn).read()
     
         return T.body[
-            T.h1[name],
+            T.h1['Event: '+name],
             T.a(href="/index/"+path)['Back to menu'],
 
             T.br,
@@ -407,8 +437,8 @@ class Editor(swi.SimpleWebInterface):
             if description is not None: p.description=description
             p.actionpoints=[int(ap_intro), int(ap_cancel), int(ap_raise), int(ap_lower)]
             p.effects=[item.strip() for item in effects.split('\n')]
-            p.mincost=int(mincost)
-            p.maxcost=int(maxcost)
+            p.mincost=float(mincost)
+            p.maxcost=float(maxcost)
             p.minincome=float(minincome)
             p.maxincome=float(maxincome)
             p.department=department
@@ -432,7 +462,7 @@ class Editor(swi.SimpleWebInterface):
         select=[{},dict(selected='selected')]
         
         return T.body[
-            T.h1[p.objectname],
+            T.h1['Policy: '+p.objectname],
             T.a(href="/index/"+path)['Back to menu'],
             T.br,
             T.form(action="/policy/%s/%d"%(path,index), method='post') [
@@ -468,9 +498,9 @@ class Editor(swi.SimpleWebInterface):
                     ],    
                 T.br,
                 'Cost: ',
-                      T.input(type='text',name='mincost',value=p.mincost, size=8),
+                      T.input(type='text',name='mincost',value="%g"%p.mincost, size=8),
                       ' to ',
-                      T.input(type='text',name='maxcost',value=p.maxcost, size=8),
+                      T.input(type='text',name='maxcost',value="%g"%p.maxcost, size=8),
                       ' (in $M per turn)',
                 T.br,
                 'Income: ',
@@ -562,7 +592,7 @@ class Editor(swi.SimpleWebInterface):
         select=[{},dict(selected='selected')]
         
         return T.body[
-            T.h1[v.name],
+            T.h1['Variable: '+v.name],
             T.a(href="/index/"+path)['Back to menu'],
             T.br,
             T.form(action="/variable/%s/%d"%(path,index), method='post') [
@@ -677,7 +707,7 @@ class Editor(swi.SimpleWebInterface):
         select=[{},dict(selected='selected')]
         
         return T.body[
-            T.h1[vt.objectname],
+            T.h1['Voter Type: '+vt.objectname],
             T.a(href="/index/"+path)['Back to menu'],
             T.br,
             T.form(action="/votertype/%s/%d"%(path,index), method='post') [
@@ -786,6 +816,86 @@ class Editor(swi.SimpleWebInterface):
             
             
         return html
+
+    def swi_sanity(self, path):
+        policy_data = parse_file(path+'/simulation/Policies.csv')
+        variable_data = parse_file(path+'/simulation/simulation.csv')
+        votertype_data = parse_file(path+'/simulation/VoterTypes.csv')
+
+        variables = []
+        for i,data in enumerate(variable_data):
+            if len(data[0])>0 and data[0][0]=='#':
+                v = Variable(data)
+                v.index = i
+                variables.append(v)
+        policies = []
+        for i,data in enumerate(policy_data):
+            if len(data[0])>0 and data[0][0]=='#':
+                p = Policy(data)
+                p.index = i
+                policies.append(p)
+        votertypes = []
+        for i,data in enumerate(votertype_data):
+            if len(data[0])>0 and data[0][0]=='#':
+                vt = VoterType(data)
+                vt.index = i
+                votertypes.append(vt)
+
+        events = []
+        for fn in os.listdir(path+'/simulation/events'):
+            e = Event(path+'/simulation/events/'+fn)
+            e.short_filename = fn[:-4]
+            events.append(e)
+                
+
+        valid = []
+        for v in variables:
+            valid.append(v.name)
+        for vt in votertypes:
+            valid.append(vt.objectname)
+            valid.append(vt.objectname+'_freq')
+        valid.append('_security_')    
+
+        valid_policies = []
+        for p in policies:
+            valid_policies.append(p.objectname)
+        valid_policies.extend(['_random_', '_winning_'])    
+
+        errors = []
+        for p in policies:
+            for effect in p.effects:
+                effect = effect.strip()
+                if len(effect)>0:
+                    var = effect.split(',')[0]
+                    if var not in valid:
+                        error = T.a(href='/policy/%s/%d'%(path,p.index))['Policy "%s" affects unknown variable "%s"'%(p.guiname, var)]
+                        errors.append(T.li[error])
+        for ev in events:
+            for inf in ev.influences:
+                if inf[0]=='"': inf = inf[1:]
+                if inf[-1]=='"': inf = inf[:-1]
+                var = inf.split(',')[0]
+                if var not in valid and var not in valid_policies:
+                    error = T.a(href='/event/%s/%s'%(path,ev.short_filename))['Event "%s" affects unknown variable "%s"'%(ev.GUIName, var)]
+                    errors.append(T.li[error])
+        if len(errors)==0:
+            errors.append(T.li['No errors found!'])
+
+        return T.body[
+            T.a(href="/index/"+path)['Back to menu'],
+            T.h1['Errors:'],
+                T.ul[errors],            
+            T.h1['Database Items:'],
+            T.h3['Variables:'],
+            T.p[[T.span[T.a(href='/variable/%s/%d'%(path,v.index))[v.guiname],' '] for v in variables]],
+            T.h3['Policies:'],
+            T.p[[T.span[T.a(href='/policy/%s/%d'%(path,p.index))[p.guiname],' '] for p in policies]],
+            T.h3['Voter Types:'],
+            T.p[[T.span[T.a(href='/votertype/%s/%d'%(path,vt.index))[vt.guiname],' '] for vt in votertypes]],
+            T.h3['Events:'],
+            T.p[[T.span[T.a(href='/event/%s/%s'%(path,e.short_filename))[e.short_filename],' '] for e in events]],
+           
+            ]
     
 
     def swi_policyvis(self, path, index):
