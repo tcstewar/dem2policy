@@ -27,7 +27,7 @@ def generate_gv(filename, csvs):
 
     gv="""
     digraph d2 {
-        graph [ dpi = 1500 ]; 
+        graph [ dpi = 450 ]; 
 	    rankdir=LR;
 	    size="8,5"
 	    //node [shape = doublecircle]; LR_0 LR_3 LR_4 LR_8;

@@ -303,6 +303,7 @@ class Editor(swi.SimpleWebInterface):
             ],
             T.br,
             T.a(href="/sanity/%s"%path)['Sanity Check'],
+            ' ',
             T.a(href="/graphviz/%s"%path)['GraphViz'],
             
             ]
@@ -986,7 +987,10 @@ class Editor(swi.SimpleWebInterface):
         return T.body[
             T.h3['.gv file:'],
             raw,
+            T.br,
             T.a(href='/graphviz_image/%s/png'%path)['png'],
+            ' ',
+            T.a(href='/graphviz_image/%s/pdf'%path)['pdf'],
             ]
 
     def swi_graphviz_image(self, path, type):
