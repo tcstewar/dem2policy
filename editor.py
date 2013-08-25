@@ -4,7 +4,9 @@ import csv
 import os
 import random
 import sys
-import json        
+import json
+
+import graphviz
 
 
 def remove_non_ascii(text):
@@ -301,6 +303,8 @@ class Editor(swi.SimpleWebInterface):
             ],
             T.br,
             T.a(href="/sanity/%s"%path)['Sanity Check'],
+            T.a(href="/graphviz/%s"%path)['GraphViz'],
+            
             ]
             
             
@@ -970,7 +974,28 @@ class Editor(swi.SimpleWebInterface):
                               policy_index=p.index))
 
         return json.dumps(dict(nodes=nodes))
-                
+
+    def swi_graphviz(self, path):
+
+        graphviz.generate_gv(path+'/graphviz',[path+'/simulation/simulation.csv'])
+
+        gv=open(path+'/graphviz.gv').read()
+        
+        raw = T.textarea(rows=30, cols=80, name='raw')[gv]
+
+        return T.body[
+            T.h3['.gv file:'],
+            raw,
+            T.a(href='/graphviz_image/%s/png'%path)['png'],
+            ]
+
+    def swi_graphviz_image(self, path, type):
+        graphviz.generate_gv(path+'/graphviz',[path+'/simulation/simulation.csv'])
+        graphviz.generate_image(path+'/graphviz', type)
+
+
+        return ('image/'+type,open(path+'/graphviz.'+type, 'rb').read())
+        
         
 
 swi.start(Editor, 8080)

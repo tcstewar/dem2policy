@@ -199,8 +199,8 @@ class SimpleWebInterface(BaseHTTPServer.BaseHTTPRequestHandler):
       db2=makeDBFromLine(data)
       db.update(db2)
       
-    print self.path  
-    print db
+    #print self.path  
+    #print db
 
 
     if self.path=='': self.path='/'
